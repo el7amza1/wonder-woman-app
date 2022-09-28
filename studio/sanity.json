@@ -1,7 +1,8 @@
 {
   "root": true,
   "project": {
-    "name": "JWT"
+    "name": "JWT",
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "53cc74ct",
