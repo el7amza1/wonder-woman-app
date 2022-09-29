@@ -2235,6 +2235,7 @@ select.mobile-device {
 	position: absolute;
 	top: 100%;
 	left: 0px;
+    width: 100%;
 }
 
 /*------------------------------------------------------------------
