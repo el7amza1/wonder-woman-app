@@ -7,7 +7,7 @@ const Layout = ({ children }: Props) => {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-dark fixed-top bg-black" id="mainNav">
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style={{background:"#af3b6e"}}>
         <div className="container">
           {/* <a className="navbar-brand js-scroll-trigger" href="#page-top">
         <svg className="wt-logo" role="img"><title>Wunderman Thompson</title><use href="#40b66408b68b0d881ddb6afded3b01f0"></use></svg>
