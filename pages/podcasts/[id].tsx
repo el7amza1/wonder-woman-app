@@ -1,6 +1,6 @@
 import React from 'react'
 
-const index = () => {
+const PodcastPage = () => {
   return (
     <div style={{ backgroundImage: 'url(./images/bc-1.jpg)', backgroundSize: 'cover' }}>
       <div className="h-screen	bg-cover w-full  items-center parallaxie h-full  grid grid-cols-12	 justify-center "  >
@@ -45,4 +45,4 @@ const index = () => {
   )
 }
 
-export default index
+export default PodcastPage
