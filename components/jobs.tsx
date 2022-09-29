@@ -2,7 +2,7 @@
 const Jobs = () => {
   return (
     <div>
-      	<div id="portfolio" className="section lb">
+      	<div id="podcasts" className="section lb">
 		<div className="container">
 			<div className="section-title text-center">
                 <h3>Podcasts</h3>

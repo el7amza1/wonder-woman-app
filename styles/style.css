@@ -295,9 +295,17 @@ a img.aligncenter {
 	font-size: 14px;
 	position: relative;
 	text-transform: capitalize;
+    cursor: pointer;
 }
+
 .navbar-dark .navbar-nav .nav-link:hover{
-	color: #ffffff;
+    color: #e661b2;
+}
+.navbar-dark .navbar-nav .nav-link:hover::after{
+    width: 100%;
+	height: 42px;
+	border-radius: 100px 100px 0px 100px;
+
 }
 .navbar-dark .navbar-nav .nav-link.active{
 	font-weight: 600;

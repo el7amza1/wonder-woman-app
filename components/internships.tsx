@@ -12,7 +12,7 @@ const Internships = ({ interns }: { interns: any }) => {
 
   return (
     <div>
-      <div id="blog" className="section lb">
+      <div id="interns" className="section lb">
         <div className="container">
           <div className="section-title text-center">
             <h3>Interns</h3>
@@ -31,7 +31,7 @@ const Internships = ({ interns }: { interns: any }) => {
                     <div className="post-thumb">
                       <img
                         src={urlFor(intern.image).width(300).height(300)}
-                        className="img-fluid"
+                        className="img-fluid w-full"
                         alt="post-img"
                       />
                     </div>
