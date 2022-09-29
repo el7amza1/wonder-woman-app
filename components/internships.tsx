@@ -1,82 +1,65 @@
-import React from 'react'
+import React from "react";
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../client";
+import Link from "next/link";
 
-const Internships = () => {
+const Internships = ({ interns }: { interns: any }) => {
+  const builder: any = imageUrlBuilder(client);
+
+  function urlFor(imageLink: string) {
+    return builder.image(imageLink);
+  }
+
   return (
     <div>
-      <div id="blog"  className="section lb">
-		<div  className="container">
-			<div  className="section-title text-center">
-                <h3>Internships</h3>
-                <p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
-            </div>
-			
-			<div  className="row">
-				<div  className="col-md-4 col-sm-6 col-lg-4">
-					<div  className="post-box">
-						<div  className="post-thumb">
-							<img src="uploads/blog-01.jpg"  className="img-fluid" alt="post-img" />
-							<div  className="date">
-								<span>06</span>
-								<span>Aug</span>
-							</div>
-						</div>
-						<div  className="post-info">
-							<h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
-							<ul>
-                                <li>by admin</li>
-                                <li>Apr 21, 2018</li>
-                                <li><a href="#"><b> Comments</b></a></li>
-                            </ul>
-							<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
-						</div>
-					</div>
-				</div>
-				<div  className="col-md-4 col-sm-6 col-lg-4">
-					<div  className="post-box">
-						<div  className="post-thumb">
-							<img src="uploads/blog-02.jpg"  className="img-fluid" alt="post-img" />
-							<div  className="date">
-								<span>06</span>
-								<span>Aug</span>
-							</div>
-						</div>
-						<div  className="post-info">
-							<h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
-							<ul>
-                                <li>by admin</li>
-                                <li>Apr 21, 2018</li>
-                                <li><a href="#"><b> Comments</b></a></li>
-                            </ul>
-							<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
-						</div>
-					</div>
-				</div>
-				<div  className="col-md-4 col-sm-6 col-lg-4">
-					<div  className="post-box">
-						<div  className="post-thumb">
-							<img src="uploads/blog-03.jpg"  className="img-fluid" alt="post-img" />
-							<div  className="date">
-								<span>06</span>
-								<span>Aug</span>
-							</div>
-						</div>
-						<div  className="post-info">
-							<h4>Quisque auctor lectus interdum nisl accumsan venenatis.</h4>
-							<ul>
-                                <li>by admin</li>
-                                <li>Apr 21, 2018</li>
-                                <li><a href="#"><b> Comments</b></a></li>
-                            </ul>
-							<p>Etiam materials ut mollis tellus, vel posuere nulla. Etiam sit amet massa sodales aliquam at eget quam. Integer ultricies et magna quis.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div>
-    </div>
-  )
-}
+      <div id="blog" className="section lb">
+        <div className="container">
+          <div className="section-title text-center">
+            <h3>Interns</h3>
+            <p>
+              {" "}
+              We were interested in finding out more about our interns, so we
+              interviewed a bunch and asked the other half to blog about their
+              experience. Find out what they said…
+            </p>
+          </div>
+          <div className="row">
+            {interns.map((intern) => (
+              <Link href={`/interns/${intern.id.current}`}>
+                <div className="col-md-4 col-sm-6 col-lg- cursor-pointer">
+                  <div className="post-box">
+                    <div className="post-thumb">
+                      <img
+                        src={urlFor(intern.image).width(300).height(300)}
+                        className="img-fluid"
+                        alt="post-img"
+                      />
+                    </div>
+                    <div className="post-info">
+                      <h4>{intern.name}</h4>
 
-export default Internships
+                      <h6 className="text-gray-500">
+                        {intern.department} intern
+                      </h6>
+
+                      <p>
+                        {intern.story[0].children[0].text.length <= 25
+                          ? intern.story[0].children[0].text
+                          : `${intern.story[0].children[0].text.slice(
+                              0,
+                              75
+                            )}...`}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Internships;

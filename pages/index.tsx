@@ -11,13 +11,13 @@ import styles from '../styles/Home.module.css'
 import client from '../client'
 
 
-const Home: NextPage = () => {
+const Home: NextPage = ({interns}) => {
   return (
   <div>
     <Slider/>
     <Services/>
     <Team/>
-    <Internships/>
+    <Internships interns={interns}/>
     <Jobs/>
     <ContactUs/>
   </div>
@@ -25,3 +25,12 @@ const Home: NextPage = () => {
 }
 
 export default Home
+
+export async function getStaticProps() {
+  const interns = await client.fetch(`*[_type == "interns"] | order(_createdAt desc) [0...3]`)
+  return {
+    props: {
+      interns
+    }
+  }
+}
