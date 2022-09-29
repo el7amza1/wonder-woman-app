@@ -17,7 +17,7 @@ export async function getStaticPaths() {
       params: { id: intern.id.current }
     }
   })
-  console.log("paths" , paths);
+  // console.log("paths" , paths);
   return {
     paths,
     fallback: true,
