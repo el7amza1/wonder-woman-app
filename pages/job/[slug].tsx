@@ -7,7 +7,6 @@ import { Job } from "../../types";
 
 const Job = ({ job }: { job: Job }): JSX.Element => {
   const [open, setOpen] = useState<boolean>(false);
-  console.log(job);
   return job ? (
     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6">
