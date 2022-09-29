@@ -62,7 +62,7 @@ const Job = ({ job }: { job: Job }): JSX.Element => {
             </dd>
           </div>
         </dl>
-        <ApplyForm open={open} setOpen={setOpen} />
+        <ApplyForm open={open} setOpen={setOpen} job={job.title} />
       </div>
     </div>
   ) : (

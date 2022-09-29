@@ -10,9 +10,11 @@ import { collection, addDoc } from "firebase/firestore";
 export default function ApplyForm({
   open,
   setOpen,
+  job,
 }: {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
+  job: string;
 }) {
   const formik = useFormik({
     initialValues: {
@@ -42,6 +44,7 @@ export default function ApplyForm({
             values: {
               ...values,
               pdf: file64,
+              job,
             },
           });
         })
