@@ -7,7 +7,6 @@ import { Job } from "../../types";
 
 const Job = ({ job }: { job: Job }): JSX.Element => {
   const [open, setOpen] = useState<boolean>(false);
-  console.log(job);
   return job ? (
     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6">
@@ -63,7 +62,7 @@ const Job = ({ job }: { job: Job }): JSX.Element => {
             </dd>
           </div>
         </dl>
-        <ApplyForm open={open} setOpen={setOpen} />
+        <ApplyForm open={open} setOpen={setOpen} job={job.title} />
       </div>
     </div>
   ) : (

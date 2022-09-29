@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import sgMail from "@sendgrid/mail";
-import { html } from "../../mjml/template";
+import { renderTemplate } from "../../mjml/template";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
@@ -16,7 +16,7 @@ export default async function handler(
     from: "marwanashrafzaki98@gmail.com", // Change to your verified sender
     subject: `Thanks for applying!`,
     text: "Thanks for applying!",
-    html: `${html}`,
+    html: `${renderTemplate(values.job)}`,
   };
 
   const msg2 = {

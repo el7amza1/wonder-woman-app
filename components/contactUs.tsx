@@ -14,7 +14,7 @@ const ContactUs = () => {
       message: "",
     },
     onSubmit: (values) => {
-      axios.post("./api/sendMail", { values }).then((res) => console.log(res));
+      axios.post("./api/sendMail", { values });
     },
     validationSchema: yup.object({
       firstName: yup.string().required(),
