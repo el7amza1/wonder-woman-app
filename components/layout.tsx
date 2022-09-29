@@ -20,7 +20,8 @@ const Layout = ({ children }: Props) => {
         />
       </Head>
       <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top bg-black"
+        className="navbar navbar-expand-lg navbar-dark fixed-top"
+        style={{ background: "#af3b6e" }}
         id="mainNav"
       >
         <div className="container">
