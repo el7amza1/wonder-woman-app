@@ -13,13 +13,14 @@ const index = () => {
             </div>
           </div>
         </div>
-        <div className='col-span-8 	pod-s align-center grid items-center justify-centerg' >
+        <div className='col-span-8 	pod-s align-center flex flex-col items-center justify-centerg' >
+          
+          <h2>title</h2>
+          <p>description</p>
           <audio controls >
             <source src="/html5/audio.ogg" type="audio/ogg" />
           </audio>
-          <h2>title</h2>
-          <p>description</p>
-          <button className="w-30 get_btn hvr-bounce-to-top" >Get started</button>
+          {/* <button className="w-30 get_btn hvr-bounce-to-top" style={{    width: "150px"}}>Get started</button> */}
 
         </div>
       </div>
