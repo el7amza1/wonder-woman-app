@@ -8,6 +8,8 @@ import Services from '../components/services'
 import Slider from '../components/slider'
 import Team from '../components/team'
 import styles from '../styles/Home.module.css'
+import client from '../client'
+
 
 const Home: NextPage = () => {
   return (
