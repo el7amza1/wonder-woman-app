@@ -1,11 +1,15 @@
-
-import React from 'react'
-import { Props } from '../types'
-import Scrollspy from 'react-scrollspy'
-import { Link, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import React from "react";
+import { Props } from "../types";
+import Scrollspy from "react-scrollspy";
+import {
+  Link,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
+import Head from "next/head";
 
 const Layout = ({ children }: Props) => {
-
   return (
     <div>
       <Head>
@@ -16,7 +20,8 @@ const Layout = ({ children }: Props) => {
         />
       </Head>
       <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top bg-black"
+        className="navbar navbar-expand-lg navbar-dark fixed-top"
+        style={{ background: "#af3b6e" }}
         id="mainNav"
       >
         <div className="container">
@@ -32,45 +37,87 @@ const Layout = ({ children }: Props) => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-
             Menu
             <i className="fa fa-bars"></i>
           </button>
           <div className="collapse navbar-collapse" id="navbarResponsive">
-
-            <Scrollspy className="navbar-nav text-uppercase ml-auto"
-              items={['home', 'services', 'team', 'interns', 'podcasts', 'contact']}
-              currentClassName="active" >
+            <Scrollspy
+              className="navbar-nav text-uppercase ml-auto"
+              items={[
+                "home",
+                "services",
+                "team",
+                "interns",
+                "podcasts",
+                "contact",
+              ]}
+              currentClassName="active"
+            >
               <ul className="navbar-nav text-uppercase ml-auto">
-
                 <li className="nav-item">
-                  <Link activeClass="active" spy={true} smooth={false}  to="home" className="nav-link " >
+                  <Link
+                    activeClass="active"
+                    spy={true}
+                    smooth={false}
+                    to="home"
+                    className="nav-link "
+                  >
                     Home
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link activeClass="active" spy={true} smooth={false}  to="services" className="nav-link " >
+                  <Link
+                    activeClass="active"
+                    spy={true}
+                    smooth={false}
+                    to="services"
+                    className="nav-link "
+                  >
                     Careers
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link activeClass="active" spy={true} smooth={false} to="team" className="nav-link " >
+                  <Link
+                    activeClass="active"
+                    spy={true}
+                    smooth={false}
+                    to="team"
+                    className="nav-link "
+                  >
                     Our Team
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link activeClass="active" spy={true} smooth={false} to="interns" className="nav-link " >
+                  <Link
+                    activeClass="active"
+                    spy={true}
+                    smooth={false}
+                    to="interns"
+                    className="nav-link "
+                  >
                     Interns
                   </Link>
                 </li>
                 <li className="nav-item">
-                <Link activeClass="active" spy={true} smooth={false} to="podcasts" className="nav-link " >
-                Podcasts
+                  <Link
+                    activeClass="active"
+                    spy={true}
+                    smooth={false}
+                    to="podcasts"
+                    className="nav-link "
+                  >
+                    Podcasts
                   </Link>
                 </li>
                 <li className="nav-item">
-                <Link activeClass="active" spy={true} smooth={false} to="contact" className="nav-link " >
-                Contect Us
+                  <Link
+                    activeClass="active"
+                    spy={true}
+                    smooth={false}
+                    to="contact"
+                    className="nav-link "
+                  >
+                    Contect Us
                   </Link>
                 </li>
               </ul>
@@ -102,8 +149,5 @@ const Layout = ({ children }: Props) => {
     </div>
   );
 };
-
-
-
 
 export default Layout;
