@@ -11,10 +11,16 @@ import {
 const Layout = ({ children }: Props) => {
   return (
     <div>
+      <Head>
+        <title>JWT</title>
+        <link
+          rel="shortcut icon"
+          href="https://d3bzyjrsc4233l.cloudfront.net/company_office/WTSA.png"
+        />
+      </Head>
       <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top"
+        className="navbar navbar-expand-lg navbar-dark fixed-top bg-black"
         id="mainNav"
-        style={{ background: "#af3b6e" }}
       >
         <div className="container">
           {/* <a className="navbar-brand js-scroll-trigger" href="#page-top">
@@ -124,6 +130,7 @@ const Layout = ({ children }: Props) => {
             <a href="#">
               <img src="images/logo.png" alt="" />
             </a>
+
             <div className="footer-center">
               <p className="footer-links">
                 <a href="#">Home</a>
