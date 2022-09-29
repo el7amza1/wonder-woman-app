@@ -1599,7 +1599,7 @@ hr.invis1 {
 	box-shadow: 0 0 10px #ccc;
 }
 
-.gallery-list .img-overlay {
+/* .gallery-list .img-overlay {
 	border-radius: 100px 100px 0px 100px;
     position: absolute;
     top: 10px;
@@ -1614,9 +1614,9 @@ hr.invis1 {
     z-index: 2;
     -webkit-transform: translateY(10px);
     transform: translateY(10px);
-}
+} */
 
-.gallery-list .gallery-single:hover .img-overlay {
+/* .gallery-list .gallery-single:hover .img-overlay {
     opacity: 1;
     -webkit-transform: translateY(0);
     transform: translateY(0);
@@ -1625,7 +1625,7 @@ hr.invis1 {
 .gallery-list .gallery-single:hover .img-overlay .hoverbutton{
 	opacity: 1;
 	top: 50%;
-}
+} */
 
 
 .post-box .date{
