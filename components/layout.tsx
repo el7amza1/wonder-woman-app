@@ -7,6 +7,7 @@ import {
   scrollSpy,
   scroller,
 } from "react-scroll";
+import Head from "next/head";
 
 const Layout = ({ children }: Props) => {
   return (
