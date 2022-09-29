@@ -12,6 +12,7 @@ import client from '../client'
 
 
 const Home: NextPage = ({interns}) => {
+
   return (
   <div>
     <Slider/>
@@ -27,10 +28,14 @@ const Home: NextPage = ({interns}) => {
 export default Home
 
 export async function getStaticProps() {
-  const interns = await client.fetch(`*[_type == "interns"] | order(_createdAt desc) [0...3]`)
+  const interns = await client.fetch(`*[_type == "interns"]{..., "image": image.asset->url}| order(_createdAt desc) [0...3]`)
+  
+  // const images = await client.fetch(`*[_type == "interns"]`)
+
   return {
     props: {
-      interns
+      interns,
+      // images
     }
   }
 }
