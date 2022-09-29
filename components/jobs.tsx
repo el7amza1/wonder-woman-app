@@ -24,54 +24,49 @@ const Jobs = () => {
 				<div className="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
 					<div className="gallery-single fix">
 						<img src="uploads/gallery_img-01.jpg" className="img-fluid" alt="Image"/>
-						<div className="img-overlay">
-							<a href="uploads/gallery_img-01.jpg" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="fa fa-picture-o"></i></a>
-						</div>
+						<div className="title-s">title</div>
+						<div className="name-s">podcast name</div>
 					</div>
 				</div>
 				
 				<div className="col-md-4 col-sm-6 gallery-grid gal_c gal_b">
 					<div className="gallery-single fix">
 						<img src="uploads/gallery_img-02.jpg" className="img-fluid" alt="Image"/>
-						<div className="img-overlay">
-							<a href="uploads/gallery_img-02.jpg" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="fa fa-picture-o"></i></a>
-						</div>
+						<div className="title-s">title</div>
+						<div className="name-s">bordcast name</div>
 					</div>
 				</div>
 				
 				<div className="col-md-4 col-sm-6 gallery-grid gal_a gal_c">
 					<div className="gallery-single fix">
 						<img src="uploads/gallery_img-03.jpg" className="img-fluid" alt="Image"/>
-						<div className="img-overlay">
-							<a href="uploads/gallery_img-03.jpg" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="fa fa-picture-o"></i></a>
-						</div>
+						<div className="title-s">title</div>
+						<div className="name-s">bordcast name</div>
 					</div>
 				</div>
 				
 				<div className="col-md-4 col-sm-6 gallery-grid gal_b gal_a">
 					<div className="gallery-single fix">
 						<img src="uploads/gallery_img-04.jpg" className="img-fluid" alt="Image"/>
-						<div className="img-overlay">
-							<a href="uploads/gallery_img-04.jpg" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="fa fa-picture-o"></i></a>
-						</div>
+						<div className="title-s">title</div>
+						<div className="name-s">bordcast name</div>
 					</div>
 				</div>
 				
 				<div className="col-md-4 col-sm-6 gallery-grid gal_a gal_c">
 					<div className="gallery-single fix">
 						<img src="uploads/gallery_img-05.jpg" className="img-fluid" alt="Image"/>
-						<div className="img-overlay">
-							<a href="uploads/gallery_img-05.jpg" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="fa fa-picture-o"></i></a>
-						</div>
+						<div className="title-s">title</div>
+						<div className="name-s">bordcast name</div>
 					</div>
 				</div>
 				
 				<div className="col-md-4 col-sm-6 gallery-grid gal_c gal_a">
-					<div className="gallery-single fix">
+					<div className="gallery-single fix relative" >
 						<img src="uploads/gallery_img-06.jpg" className="img-fluid" alt="Image"/>
-						<div className="img-overlay">
-							<a href="uploads/gallery_img-06.jpg" data-rel="prettyPhoto[gal]" className="hoverbutton global-radius"><i className="fa fa-picture-o"></i></a>
-						</div>
+						<div className="title-s">title</div>
+						<div className="name-s">bordcast name</div>
+
 					</div>
 				</div>
 			</div>
