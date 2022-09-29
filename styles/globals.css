@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;npm run dev
 
+html,body {
+  user-select:none;
+}
 
 html,
 body {
@@ -41,7 +44,7 @@ a {
   right: 10px;
   bottom: 50px;
   background: white;
-    color: #e661b2;
+    color: #af3b6e;
     font-weight: bold;
     padding: 6px 10px;
 
@@ -52,7 +55,7 @@ a {
   bottom: 10px;
   margin-top: 2px;
   background: white;
-    color: #e661b2;
+    color: #af3b6e;
     font-weight: 600;
     padding: 6px 10px;
 }
