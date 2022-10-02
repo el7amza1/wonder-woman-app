@@ -1,13 +1,20 @@
 import React from 'react'
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from 'react-responsive-carousel';
 const Team = () => {
   return (
-    <div>
-      <div className='bg-t' style={{backgroundImage:"url(./images/bg-1.png)"}}>
+    <div className='pt-3 bg-g1' >
 
-</div>
-      <div id="team" className="section wb">
-		<div className="container">
+        <div id="team" className="bg-g1 wb">
+	    <Carousel className='overflow-hidden' autoPlay={true} infiniteLoop={true} stopOnHover={true} useKeyboardArrows={true} >
+                <div  style={{backgroundImage:"url(./images/team/t-1.webp)"}} className="w-full h-screen bg-cover	">
+                </div>
+                <div style={{backgroundImage:"url(./images/team/t-2.jpg)"}} className="w-full h-screen bg-cover	">
+                </div>
+                <div style={{backgroundImage:"url(./images/team/t-3.jpg)"}} className="w-full h-screen bg-cover	">
+                </div>
+            </Carousel>
+		{/* <div className="container">
 			<div className="section-title text-center">
 				<h3>Our Team</h3>
 				<p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
@@ -86,7 +93,7 @@ const Team = () => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> */}
 	</div>
     </div>
   )

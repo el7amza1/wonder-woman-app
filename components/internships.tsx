@@ -1,5 +1,5 @@
 import React from "react";
-import imageUrlBuilder from "@sanity/image-url";
+// import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 import Link from "next/link";
 
@@ -25,16 +25,12 @@ const Internships = ({ interns, images }: { interns: any, images: string[] }) =>
             </p>
           </div>
           <div className="row">
-            {interns.map((intern) => (
+            {interns.map((intern:any) => (
               <Link href={`/interns/${intern.id.current}`}>
-                <div className="col-md-4 col-sm-6 col-lg- cursor-pointer">
+                <div className="col-md-4 col-sm-6  col-lg- cursor-pointer">
                   <div className="post-box">
-                    <div className="post-thumb h-64">
-                      <img
-                        src={intern.image}
-                        className="img-fluid h-64"
-                        alt="post-img"
-                      />
+                    <div className="post-thumb h-96 bg-cover bg-center" style={{backgroundImage:`url(${intern.image})`}}>
+                    
                     </div>
                     <div className="post-info">
                       <h4>{intern.name}</h4>
