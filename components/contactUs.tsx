@@ -14,7 +14,7 @@ const ContactUs = () => {
       message: "",
     },
     onSubmit: (values) => {
-      axios.post("./api/sendMail", { values });
+      axios.post("./api/sendMail", { values }).then(() => formik.resetForm());
     },
     validationSchema: yup.object({
       firstName: yup.string().required(),

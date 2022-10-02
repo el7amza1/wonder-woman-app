@@ -48,7 +48,10 @@ export default function ApplyForm({
             },
           });
         })
-        .then(() => setOpen(false));
+        .then(() => {
+          setOpen(false);
+          formik.resetForm();
+        });
     },
     validationSchema: yup.object({
       firstName: yup.string().required("required"),
