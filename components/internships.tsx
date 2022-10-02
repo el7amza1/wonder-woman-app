@@ -1,5 +1,5 @@
 import React from "react";
-// import imageUrlBuilder from "@sanity/image-url";
+import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 import Link from "next/link";
 
