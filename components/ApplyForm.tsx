@@ -22,7 +22,7 @@ export default function ApplyForm({
       phone: "",
       pdf: "",
     },
-    onSubmit: (values) => {
+    onSubmit: (values:any) => {
       const dbInstance = collection(database, "applicants");
 
       addDoc(dbInstance, {

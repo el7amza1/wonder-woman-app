@@ -24,7 +24,7 @@ const Internships = ({ interns }: { interns: any }) => {
             </p>
           </div>
           <div className="row">
-            {interns.map((intern) => (
+            {interns.map((intern:any) => (
               <Link href={`/interns/${intern.id.current}`}>
                 <div className="col-md-4 col-sm-6 col-lg- cursor-pointer">
                   <div className="post-box">
