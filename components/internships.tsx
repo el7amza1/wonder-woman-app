@@ -1,15 +1,20 @@
 import React from "react";
-// import imageUrlBuilder from "@sanity/image-url";
+import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 import Link from "next/link";
 
-const Internships = ({ interns, images }: { interns: any, images: string[] }) => {
+const Internships = ({
+  interns,
+  images,
+}: {
+  interns: any;
+  images: string[];
+}) => {
+  const builder: any = imageUrlBuilder(client);
 
-//   const builder: any = imageUrlBuilder(client);
-
-//   function urlFor(imageLink: string) {
-//     return builder.image(imageLink);
-//   }
+  function urlFor(imageLink: string) {
+    return builder.image(imageLink);
+  }
 
   return (
     <div>
@@ -28,11 +33,11 @@ const Internships = ({ interns, images }: { interns: any, images: string[] }) =>
             {interns.map((intern, idx) => (
               <Link href={`/interns/${intern.id.current}`} key={idx}>
                 <div className="col-md-4 col-sm-6 col-lg- cursor-pointer">
-
                   <div className="post-box">
-                    <div className="post-thumb h-96 bg-cover bg-center" style={{backgroundImage:`url(${intern.image})`}}>
-                    
-                    </div>
+                    <div
+                      className="post-thumb h-96 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${intern.image})` }}
+                    ></div>
                     <div className="post-info">
                       <h4>{intern.name}</h4>
 
