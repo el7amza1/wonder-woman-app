@@ -3,7 +3,7 @@ import React from 'react'
 const Slider = () => {
   return (
     <div>
-      <section id="home" className="main-banner parallaxie h-full" style={{background:'url(./images/bg-1.png)'}} >
+      <section id="home" className="main-banner parallaxie h-full" style={{background:'url(./images/bg.png)'}} >
 		<div className="heading">
 			<h1>Welcome to <br/> wunderman thompson</h1>			
 			<h3 className="cd-headline clip is-full-width">
