@@ -25,9 +25,10 @@ const Internships = ({ interns, images }: { interns: any, images: string[] }) =>
             </p>
           </div>
           <div className="row">
-            {interns.map((intern:any) => (
-              <Link href={`/interns/${intern.id.current}`}>
-                <div className="col-md-4 col-sm-6  col-lg- cursor-pointer">
+            {interns.map((intern, idx) => (
+              <Link href={`/interns/${intern.id.current}`} key={idx}>
+                <div className="col-md-4 col-sm-6 col-lg- cursor-pointer">
+
                   <div className="post-box">
                     <div className="post-thumb h-96 bg-cover bg-center" style={{backgroundImage:`url(${intern.image})`}}>
                     
