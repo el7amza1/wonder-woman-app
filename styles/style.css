@@ -2107,6 +2107,7 @@ hr.invis1 {
     left: auto;
 }
 
+
 .bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:after {
     right: 13px;
     left: auto;
@@ -2616,3 +2617,53 @@ select.mobile-device {
     border-color: rgba(255, 255, 255, 0.6);
     color: rgba(255, 255, 255, 0.6);
 }
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+    }
+    .carousel, .item, .active {
+    height:100%;
+    }
+    .carousel-inner {
+    height:100%;
+    }
+    .carousel {
+    margin-bottom: 60px;
+    }
+    .carousel-caption {
+    z-index: 10;
+    }
+    .carousel .item {
+    background-color: #777;
+    }
+    .carousel .carousel-inner .bg {
+    background-repeat:no-repeat;
+    background-size:cover;
+    }
+    .carousel .carousel-inner .bg1 {
+    background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/158072/spiderweb.jpg');
+    background-position: center top;
+    }
+    .carousel .carousel-inner .bg2 {
+    background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/158072/hearthand.jpg');
+    background-position: center center;
+    }
+    .carousel .carousel-inner .bg3 {
+    background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/158072/woman-camera.jpg');
+    background-position: center bottom;
+    }
+    .dot{
+        padding: 11px;
+        background-color: rgba(0, 0, 0, 0.442) !important;
+    }
+    .carousel-status{
+        display: none  !important;
+    }
+    .control-arrow{
+        padding: 40px !important;
+    }
+    .bg-g1{
+        background-color: #f2f3f5 !important;
+
+    }

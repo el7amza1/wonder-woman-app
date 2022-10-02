@@ -10,6 +10,7 @@ import Team from "../components/team";
 import styles from "../styles/Home.module.css";
 import client from "../client";
 
+
 const Home: NextPage = ({ interns, jobs }) => {
   return (
     <div>
@@ -26,9 +27,8 @@ const Home: NextPage = ({ interns, jobs }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const interns = await client.fetch(
-    `*[_type == "interns"] | order(_createdAt desc) [0...3]`
-  );
+  const interns = await client.fetch(`*[_type == "interns"]{..., "image": image.asset->url}| order(_createdAt desc) [0...3]`)
+  
   const jobs = await client.fetch(
     `*[_type == "job"] | order(_createdAt desc) [0...5]`
   );
