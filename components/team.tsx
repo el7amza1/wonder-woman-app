@@ -3,9 +3,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 const Team = () => {
   return (
-    <div className='pt-3 bg-g1' >
 
-        <div id="team" className="bg-g1 wb">
+        <div id="team" className="bg-g1 wb pt-3 bg-g1 mt-4">
 	    <Carousel className='overflow-hidden' autoPlay={true} infiniteLoop={true} stopOnHover={true} useKeyboardArrows={true} >
                 <div  style={{backgroundImage:"url(./images/team/t-1.webp)"}} className="w-full h-screen bg-cover	">
                 </div>
@@ -95,7 +94,6 @@ const Team = () => {
 			</div>
 		</div> */}
 	</div>
-    </div>
   )
 }
 

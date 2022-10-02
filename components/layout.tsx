@@ -59,7 +59,7 @@ const Layout = ({ children }: Props) => {
                     activeClass="active"
                     spy={true}
                     smooth={false}
-                    to="/"
+                    to="home"
                     className="nav-link "
                   >
                     Home
@@ -130,7 +130,7 @@ const Layout = ({ children }: Props) => {
         <div className="container">
           <div className="footer-distributed">
             <a href="#">
-              <img src="images/logo.png" alt="" />
+              <img className="h-10" src="./images/logo.png" alt="" />
             </a>
 
             <div className="footer-center">
