@@ -4,6 +4,9 @@ const Jobs = () => {
   const [podcasts, setPodcasts] = useState([]);
   return (
     <div>
+         <div className='bg-t' style={{backgroundImage:"url(./images/bg-1.png)"}}>
+
+</div>
       <div id="podcasts" className="section lb">
         <div className="container">
           <div className="section-title text-center">
@@ -14,18 +17,7 @@ const Jobs = () => {
             </p>
           </div>
 
-          <div className="gallery-menu row">
-            <div className="col-md-12">
-              <div className="button-group filter-button-group text-center">
-                <button className="active" data-filter="*">
-                  All
-                </button>
-                <button data-filter=".gal_a">Web Development</button>
-                <button data-filter=".gal_b">Creative Design</button>
-                <button data-filter=".gal_c">Graphic Design</button>
-              </div>
-            </div>
-          </div>
+        
 
           <div className="gallery-list row">
             <div className="col-md-4 col-sm-6 gallery-grid gal_a gal_b">

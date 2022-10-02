@@ -59,7 +59,7 @@ const Layout = ({ children }: Props) => {
                     activeClass="active"
                     spy={true}
                     smooth={false}
-                    to="home"
+                    to="/"
                     className="nav-link "
                   >
                     Home
@@ -135,7 +135,7 @@ const Layout = ({ children }: Props) => {
 
             <div className="footer-center">
               <p className="footer-links">
-                <a href="#">Home</a>
+                <a href="/">Home</a>
                 <a href="#">Blog</a>
                 <a href="#">Pricing</a>
                 <a href="#">About</a>

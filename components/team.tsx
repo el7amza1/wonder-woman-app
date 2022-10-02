@@ -1,51 +1,20 @@
 import React from 'react'
-
+import "react-responsive-carousel/lib/styles/carousel.min.css"; 
+import { Carousel } from 'react-responsive-carousel';
 const Team = () => {
   return (
-    <div>
-      {/* <div className='bg-t' style={{backgroundImage:"url(./images/bg-1.png)"}}>
+    <div className='pt-3 bg-g1' >
 
-</div> */}
-      <div id="myCarousel" className="carousel slide" data-ride="carousel" style={{    height: "656px",margin:"0"}}>
-        <ol className="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to={0} className="active" />
-          <li data-target="#myCarousel" data-slide-to={1} />
-          <li data-target="#myCarousel" data-slide-to={2} />
-        </ol>
-        <div className="carousel-inner">
-          <div className="item bg bg1 active">
-            <div className="container">
-              <div className="carousel-caption">
-                <h1>Example headline.</h1>
-                <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-                <p><a className="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-              </div>
-            </div>
-          </div>
-          <div className="item bg bg2">
-            <div className="container">
-              <div className="carousel-caption">
-                <h1>Another example headline.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a className="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div className="item bg bg1">
-            <div className="container">
-              <div className="carousel-caption">
-                <h1>One more for good measure.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <p><a className="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a className="left carousel-control" href="#myCarousel" data-slide="prev"><span className="glyphicon glyphicon-chevron-left" /></a>
-        <a className="right carousel-control" href="#myCarousel" data-slide="next"><span className="glyphicon glyphicon-chevron-right" /></a>
-      </div>
-      {/* <div id="team" className="section wb">
-		<div className="container">
+        <div id="team" className="bg-g1 wb">
+	    <Carousel className='overflow-hidden' autoPlay={true} infiniteLoop={true} stopOnHover={true} useKeyboardArrows={true} >
+                <div  style={{backgroundImage:"url(./images/team/t-1.webp)"}} className="w-full h-screen bg-cover	">
+                </div>
+                <div style={{backgroundImage:"url(./images/team/t-2.jpg)"}} className="w-full h-screen bg-cover	">
+                </div>
+                <div style={{backgroundImage:"url(./images/team/t-3.jpg)"}} className="w-full h-screen bg-cover	">
+                </div>
+            </Carousel>
+		{/* <div className="container">
 			<div className="section-title text-center">
 				<h3>Our Team</h3>
 				<p>Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis vehicula enim, non aliquam risus.</p>
@@ -124,8 +93,8 @@ const Team = () => {
 					</div>
 				</div>
 			</div>
-		</div>
-	</div> */}
+		</div> */}
+	</div>
     </div>
   )
 }

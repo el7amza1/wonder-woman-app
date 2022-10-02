@@ -2107,6 +2107,7 @@ hr.invis1 {
     left: auto;
 }
 
+
 .bootstrap-select.show-menu-arrow.pull-right .dropdown-toggle:after {
     right: 13px;
     left: auto;
@@ -2651,4 +2652,18 @@ html, body {
     .carousel .carousel-inner .bg3 {
     background-image:url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/158072/woman-camera.jpg');
     background-position: center bottom;
+    }
+    .dot{
+        padding: 11px;
+        background-color: rgba(0, 0, 0, 0.442) !important;
+    }
+    .carousel-status{
+        display: none  !important;
+    }
+    .control-arrow{
+        padding: 40px !important;
+    }
+    .bg-g1{
+        background-color: #f2f3f5 !important;
+
     }
