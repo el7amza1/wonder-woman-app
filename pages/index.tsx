@@ -12,6 +12,7 @@ import client from "../client";
 
 
 const Home: NextPage = ({ interns, jobs }) => {
+  console.log("first")
   return (
     <div>
       <Slider />
