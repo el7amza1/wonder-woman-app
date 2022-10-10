@@ -36,7 +36,6 @@ useEffect(() => {
       <nav
         className={ scrolll ?"navbar navbar-expand-lg navbar-dark fixed-top nav-bg":"navbar navbar-expand-lg navbar-dark fixed-top "}
         id="mainNav"
-        onScroll={(e)=>handleScroll(e)}
       >
         <div className="container flex justify-between">
         <a href="/">
@@ -91,7 +90,7 @@ useEffect(() => {
                     activeClass="active"
                     spy={true}
                     smooth={false}
-                    to="services"
+                    to="careers"
                     className="nav-link "
                     onClick={()=>setShow(false)}
 
