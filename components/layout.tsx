@@ -24,17 +24,18 @@ const Layout = ({ children }: Props) => {
         style={{ background: "#af3b6e" }}
         id="mainNav"
       >
-        <div className="container">
-          {/* <a className="navbar-brand js-scroll-trigger" href="#page-top">
-        <svg className="wt-logo" role="img"><title>Wunderman Thompson</title><use href="#40b66408b68b0d881ddb6afded3b01f0"></use></svg>
-		</a> */}
+        <div className="container flex justify-between">
+        <a href="/">
+              <img src="./images/logo.png" alt=""  style={{width:"120px"}}/>
+              </a>
+        
           <button
             className="navbar-toggler navbar-toggler-right"
             type="button"
             data-toggle="collapse"
             data-target="#navbarResponsive"
             aria-controls="navbarResponsive"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             Menu
@@ -53,6 +54,9 @@ const Layout = ({ children }: Props) => {
               ]}
               currentClassName="active"
             >
+              <div className="">
+              
+
               <ul className="navbar-nav text-uppercase ml-auto">
                 <li className="nav-item">
                   <Link
@@ -121,6 +125,7 @@ const Layout = ({ children }: Props) => {
                   </Link>
                 </li>
               </ul>
+              </div>
             </Scrollspy>
           </div>
         </div>
@@ -129,13 +134,13 @@ const Layout = ({ children }: Props) => {
       <div className="copyrights">
         <div className="container">
           <div className="footer-distributed">
-            <a href="#">
-              <img src="images/logo.png" alt="" />
+            <a href="/">
+              <img className="h-10" src="./images/logo.png" alt="" />
             </a>
 
             <div className="footer-center">
               <p className="footer-links">
-                <a href="#">Home</a>
+                <a href="/">Home</a>
                 <a href="#">Blog</a>
                 <a href="#">Pricing</a>
                 <a href="#">About</a>

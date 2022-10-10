@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import sgMail from "@sendgrid/mail";
+import { renderUserMessage } from "../../mjml/userMessage";
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
 export default async function handler(
@@ -9,11 +10,16 @@ export default async function handler(
 ) {
   const { values } = req.body;
   const msg = {
-    to: `${values.email}`, // Change to your recipient
+    to: `marwanashrafzaki98@gmail.com`, // Change to your recipient
     from: "marwanashrafzaki98@gmail.com", // Change to your verified sender
-    subject: `Hello ${values.firstName}`,
-    text: `${values.message}`,
-    // html: "<strong>and easy to do anywhere, even with Node.js</strong>",
+    subject: `${values.firstName} sent a message`,
+    html: `${renderUserMessage(
+      values.firstName,
+      values.lastName,
+      values.email,
+      values.phone,
+      values.message
+    )}`,
   };
   return sgMail
     .send(msg)

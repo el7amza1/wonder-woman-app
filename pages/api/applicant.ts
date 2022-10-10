@@ -2,6 +2,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import sgMail from "@sendgrid/mail";
 import { renderTemplate } from "../../mjml/template";
+import { renderAppplicantTemplate } from "../../mjml/applicant";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
 
@@ -13,9 +14,8 @@ export default async function handler(
 
   const msg = {
     to: `${values.email}`, // Change to your recipient
-    from: "marwanashrafzaki98@gmail.com", // Change to your verified sender
+    from: "JWT <marwanashrafzaki98@gmail.com>", // Change to your verified sender
     subject: `Thanks for applying!`,
-    text: "Thanks for applying!",
     html: `${renderTemplate(values.job)}`,
   };
 
@@ -23,7 +23,13 @@ export default async function handler(
     to: `marwanashrafzaki98@gmail.com`, // Change to your recipient
     from: "marwanashrafzaki98@gmail.com", // Change to your verified sender
     subject: `New Applicant`,
-    text: "New Applicant",
+    html: `${renderAppplicantTemplate(
+      values.firstName,
+      values.lastName,
+      values.email,
+      values.phone,
+      values.job
+    )}`,
     attachments: [
       {
         content: values.pdf,
