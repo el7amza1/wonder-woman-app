@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Props } from "../types";
 import Scrollspy from "react-scrollspy";
 import {
@@ -8,8 +8,22 @@ import {
   scroller,
 } from "react-scroll";
 import Head from "next/head";
-
 const Layout = ({ children }: Props) => {
+  const [show , setShow] = useState(false)
+  const [scrolll , setScroll] = useState(false)
+ 
+useEffect(() => {
+  const handleScroll = (event:any) => {
+    window.scrollY > 50 ? setScroll(true): setScroll(false)
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+  
   return (
     <div>
       <Head>
@@ -20,9 +34,9 @@ const Layout = ({ children }: Props) => {
         />
       </Head>
       <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top"
-        style={{ background: "#af3b6e" }}
+        className={ scrolll ?"navbar navbar-expand-lg navbar-dark fixed-top nav-bg":"navbar navbar-expand-lg navbar-dark fixed-top "}
         id="mainNav"
+        onScroll={(e)=>handleScroll(e)}
       >
         <div className="container flex justify-between">
         <a href="/">
@@ -37,11 +51,12 @@ const Layout = ({ children }: Props) => {
             aria-controls="navbarResponsive"
             aria-expanded="true"
             aria-label="Toggle navigation"
+            onClick={()=>setShow(!show)}
           >
             Menu
             <i className="fa fa-bars"></i>
           </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
+          <div className={show? "collapse navbar-collapse show":"collapse navbar-collapse"} id="navbarResponsive">
             <Scrollspy
               className="navbar-nav text-uppercase ml-auto"
               items={[
@@ -65,6 +80,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="home"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Home
                   </Link>
@@ -76,6 +93,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="services"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Careers
                   </Link>
@@ -87,6 +106,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="team"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Our Team
                   </Link>
@@ -98,6 +119,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="interns"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Interns
                   </Link>
@@ -109,6 +132,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="podcasts"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Podcasts
                   </Link>
@@ -120,6 +145,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="contact"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Contect Us
                   </Link>

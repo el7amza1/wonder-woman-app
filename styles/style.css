@@ -2688,3 +2688,9 @@ html, body {
         background: #85858570 !important;
 
     }
+
+    .nav-bg{
+        background: #af3b6e !important;
+     
+        transition: 1.5s all ;
+    }

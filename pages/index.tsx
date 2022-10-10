@@ -10,7 +10,6 @@ import Team from "../components/team";
 import styles from "../styles/Home.module.css";
 import client from "../client";
 
-const Home: NextPage = ({ interns, jobs }) => {
 
 const Home: NextPage = ({ interns, jobs, team }) => {
   return (
@@ -37,6 +36,6 @@ export async function getStaticProps() {
       interns,
       jobs,
       team
-    },
-  };
+    }
+  }
 }
