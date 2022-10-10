@@ -7,7 +7,7 @@ import Alert from "./Alert";
 import { database } from "../lib/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 
-export default function ApplyForm({ job }: { job: string }) {
+export default function ApplyForm({ job ,children }: { job: string , children:any }) {
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -16,7 +16,7 @@ export default function ApplyForm({ job }: { job: string }) {
       phone: "",
       pdf: "",
     },
-    onSubmit: (values:any) => {
+    onSubmit: (values: any) => {
       const dbInstance = collection(database, "applicants");
 
       addDoc(dbInstance, {
@@ -53,58 +53,173 @@ export default function ApplyForm({ job }: { job: string }) {
     }),
   });
   return (
-    <div className="overflow-hidden bg-white py-10 px-4 sm:px-6 lg:px-8">
-      <div className="relative mx-auto max-w-xl">
+    <div className="overflow-hidden bg-white py-10 px-4 sm:px-6 lg:px-8"  style={{ background: "url(../images/form-bg.jpg)" }}>
+      {children}
+      <div className="relative mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:px-8 " >
         <div className="text-start">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-100">
             Apply
           </h2>
         </div>
-        <div className="mt-12">
+        <div className="contact_form mx-auto lg:w-2/3 ">
           <form
-            action="#"
-            method="POST"
-            className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+            id="contactForm"
+            name="sentMessage"
             onSubmit={formik.handleSubmit}
           >
-            <div>
-              <label
-                htmlFor="first-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                First name
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                  value={formik.values.firstName}
-                  onChange={formik.handleChange}
-                  autoComplete="given-name"
-                  className="block w-full border-gray-300 py-3 px-4 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
+            <div className="row ">
+              <div className="col-md-12">
+                <div className="flex gap-4 ">
+                  <div className="form-group w-1/2">
+                    <input
+                      className="form-control npt-l w-full"
+                      type="text"
+                      name="firstName"
+                      id="firstName"
+                      onChange={formik.handleChange}
+                      value={formik.values.firstName}
+                      autoComplete="first-name"
+                      placeholder="First Name"
+                    />
+                    <p className="help-block text-danger">
+                      {formik.errors.firstName &&
+                        formik.touched.firstName ? (
+                        <Alert alert={formik.errors.firstName} />
+                      ) : null}
+                    </p>
+                  </div>
+                  <div className="form-group w-1/2">
+                    <input
+                      className="form-control npt-r "
+                      type="text"
+                      name="lastName"
+                      id="lastName"
+                      onChange={formik.handleChange}
+                      value={formik.values.lastName}
+                      autoComplete="last-name"
+                      placeholder="Last Name"
+                    />
+                    <p className="help-block text-danger">
+                      {formik.errors.lastName &&
+                        formik.touched.lastName ? (
+                        <Alert alert={formik.errors.firstName!} />
+                      ) : null}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="form-group w-1/2">
+                    <input
+                      className="form-control npt-l"
+                      id="email"
+                      name="email"
+                      type="email"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
+                      autoComplete="email"
+                      placeholder="Email"
+                    />
+                    <p className="help-block text-danger">
+                      {formik.errors.email && formik.touched.email ? (
+                        <Alert alert={formik.errors.email} />
+                      ) : null}
+                    </p>
+                  </div>
+                  <div className="form-group w-1/2">
+                    <input
+                      className="form-control npt-r"
+                      type="text"
+                      name="phone"
+                      id="phone"
+                      onChange={formik.handleChange}
+                      value={formik.values.phone}
+                      autoComplete="tel"
+                      aria-describedby="phone-description"
+                      placeholder="Your Phone"
+                    />
+                    <p className="help-block text-danger">
+                      {formik.errors.phone && formik.touched.phone ? (
+                        <Alert alert={formik.errors.phone} />
+                      ) : null}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="form-group">
+                  <input
+                    type="file"
+                    name="pdf"
+                    id="pdf"
+                    value={formik.values.pdf}
+                    onChange={formik.handleChange}
+                    autoComplete="tel"
+                    className="form-control npt-l"
+                  />
+                  <p className="help-block text-danger">
+                    {/* {formik.errors.message && formik.touched.message ? (
+                      <Alert alert={formik.errors.message} />
+                    ) : null} */}
+                  </p>
+                </div>
+                <button
+                  id="sendMessageButton"
+                  className="sim-btn hvr-bounce-to-top m-auto btn-bg-i"
+                  type="submit"
+                >
+                  Send Message
+                </button>
+              </div>
+              <div className="clearfix"></div>
+              <div className="col-lg-12 text-center">
+                <div id="success"></div>
+
               </div>
             </div>
-            <div>
-              <label
-                htmlFor="last-name"
-                className="block text-sm font-medium text-gray-700"
-              >
-                Last name
-              </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                  value={formik.values.lastName}
-                  onChange={formik.handleChange}
-                  autoComplete="family-name"
-                  className="block w-full border-gray-300 py-3 px-4 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-                />
-              </div>
-            </div>
+          </form>
+          {/* <form
+            action="#"
+            method="POST"
+            // className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
+            onSubmit={formik.handleSubmit}
+          >
+           <div className="flex gap-4 ">
+                        <div className="form-group w-1/2">
+                          <input
+                            className="form-control npt-l w-full"
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            onChange={formik.handleChange}
+                            value={formik.values.firstName}
+                            autoComplete="first-name"
+                            placeholder="First Name"
+                          />
+                          <p className="help-block text-danger">
+                            {formik.errors.firstName &&
+                              formik.touched.firstName ? (
+                              <Alert alert={formik.errors.firstName} />
+                            ) : null}
+                          </p>
+                        </div>
+                        <div className="form-group w-1/2">
+                          <input
+                            className="form-control npt-r "
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            onChange={formik.handleChange}
+                            value={formik.values.lastName}
+                            autoComplete="last-name"
+                            placeholder="Last Name"
+                          />
+                          <p className="help-block text-danger">
+                            {formik.errors.lastName &&
+                              formik.touched.lastName ? (
+                              <Alert alert={formik.errors.firstName!} />
+                            ) : null}
+                          </p>
+                        </div>
+                      </div>
             <div className="sm:col-span-2">
               <label
                 htmlFor="email"
@@ -120,7 +235,7 @@ export default function ApplyForm({ job }: { job: string }) {
                   value={formik.values.email}
                   onChange={formik.handleChange}
                   autoComplete="email"
-                  className="block w-full border-gray-300 py-3 px-4 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                  className="form-control npt-l w-full"
                 />
               </div>
             </div>
@@ -144,7 +259,7 @@ export default function ApplyForm({ job }: { job: string }) {
                   value={formik.values.phone}
                   onChange={formik.handleChange}
                   autoComplete="tel"
-                  className="block w-full border-gray-300 py-3 px-4 pl-20 focus:border-indigo-500 focus:ring-indigo-500"
+                  className="form-control npt-l w-full"
                 />
               </div>
             </div>
@@ -168,7 +283,7 @@ export default function ApplyForm({ job }: { job: string }) {
                   value={formik.values.pdf}
                   onChange={formik.handleChange}
                   autoComplete="tel"
-                  className="block w-full border-gray-300 py-3 px-4 pl-20 focus:border-indigo-500 focus:ring-indigo-500"
+                  className="form-control npt-l w-full"
                 />
               </div>
             </div>
@@ -181,7 +296,7 @@ export default function ApplyForm({ job }: { job: string }) {
                 Submit
               </button>
             </div>
-          </form>
+          </form> */}
         </div>
       </div>
     </div>
