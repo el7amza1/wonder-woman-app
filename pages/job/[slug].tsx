@@ -10,7 +10,7 @@ const Job = ({ job }: { job: Job }): JSX.Element => {
   console.log(job);
   return job ? (
     <div>
-      <div className="relative bg-indigo-800">
+      <div className="relative bg-indigo-800 ">
         <div className="absolute inset-0">
           <img
             className="h-full w-full object-cover"
@@ -33,13 +33,15 @@ const Job = ({ job }: { job: Job }): JSX.Element => {
           <span className="mt-6 max-w-3xl text-xl">{job.location}</span>
         </div>
       </div>
+      <ApplyForm job={job.title} >
       <div className="relative mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold tracking-tight text-black">
+        <h1 className="text-4xl font-bold tracking-tight text-gray-100">
           Job Description
         </h1>
-        <p className="text-black">{job.description}</p>
+        <p className="text-gray-100">{job.description}</p>
       </div>
-      <ApplyForm job={job.title} />
+      
+        </ApplyForm>
     </div>
   ) : (
     <></>

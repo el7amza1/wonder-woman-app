@@ -20,6 +20,7 @@ const ContactUs = () => {
     },
     onSubmit: (values) => {
       axios.post("./api/sendMail", { values }).then(() => formik.resetForm());
+
     },
     validationSchema: yup.object({
       firstName: yup.string().required(),
@@ -41,7 +42,7 @@ const ContactUs = () => {
             </p>
           </div>
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-7">
               <div className="contact_form">
                 <div id="message"></div>
                 <form
@@ -162,7 +163,7 @@ const ContactUs = () => {
                 </form>
               </div>
             </div>
-            <div className="col-md-6 mt-5">
+            <div className="col-md-5 mt-5">
               <div className=" flex items-center justify-center">
                 <div className="w-1/2 ">
                   <h2 className="font-t-c font-bold">Contact Information </h2>
