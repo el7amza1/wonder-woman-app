@@ -56,7 +56,7 @@ const InternsPage = ({ intern }: { intern: any }) => {
           </div>
         </div>
         <div className="w-1/2 ms-5 ps-5 border-solid border-l-2 border-black ">
-          {intern.story.map((item) => (
+          {intern.story.map((item :any) => (
             <>
               <ImQuotesLeft />
               <p className="text-black">{item.children[0].text}</p>
@@ -70,7 +70,7 @@ const InternsPage = ({ intern }: { intern: any }) => {
 
 export async function getStaticPaths() {
   const interns = await client.fetch(`*[_type == "interns"]`);
-  const paths = interns.map((intern) => {
+  const paths = interns.map((intern :any) => {
     return {
       params: { id: intern.id.current },
     };
@@ -82,7 +82,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }:any) {
   const id = params.id;
   const intern = await client.fetch(
     `
