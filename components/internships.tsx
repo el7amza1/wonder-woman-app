@@ -5,10 +5,8 @@ import Link from "next/link";
 
 const Internships = ({
   interns,
-  images,
 }: {
   interns: any;
-  images: string[];
 }) => {
   const builder: any = imageUrlBuilder(client);
 

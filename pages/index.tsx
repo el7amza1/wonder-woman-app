@@ -17,7 +17,7 @@ const Home: NextPage = ({ interns , jobs, team } :any) => {
       <Slider />
       <Services jobs={jobs} />
       <Team team={team} />
-      <Internships interns={interns} />
+      <Internships interns={interns}  />
       <Jobs />
       <ContactUs />
     </div>
