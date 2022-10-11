@@ -3,6 +3,11 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import Alert from "./Alert";
+import {
+  AiFillTwitterCircle,
+  AiFillLinkedin,
+  AiFillGithub,
+} from "react-icons/ai";
 
 const ContactUs = () => {
   const formik = useFormik({
@@ -14,11 +19,12 @@ const ContactUs = () => {
       message: "",
     },
     onSubmit: (values) => {
-      axios.post("./api/sendMail", { values });
+      axios.post("./api/sendMail", { values }).then(() => formik.resetForm());
+
     },
     validationSchema: yup.object({
       firstName: yup.string().required(),
-      //   lastName: yup.string().required(),
+      lastName: yup.string().required(),
       phone: yup.string().required(),
       email: yup.string().email().required(),
       message: yup.string().required(),
@@ -26,17 +32,17 @@ const ContactUs = () => {
   });
   return (
     <div>
-      <div id="contact" className="section db">
+      <div id="contact" className="section db" style={{ background: "url(./images/form-bg.jpg)" }} >
         <div className="container">
           <div className="section-title text-center">
-            <h3>Contact</h3>
-            <p>
+            <h3 className="text-white  ">Contact</h3>
+            <p >
               Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
               vehicula enim, non aliquam risus.
             </p>
           </div>
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-md-7">
               <div className="contact_form">
                 <div id="message"></div>
                 <form
@@ -44,66 +50,89 @@ const ContactUs = () => {
                   name="sentMessage"
                   onSubmit={formik.handleSubmit}
                 >
-                  <div className="row">
-                    <div className="col-md-6">
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="firstName"
-                          id="firstName"
-                          onChange={formik.handleChange}
-                          value={formik.values.firstName}
-                          autoComplete="given-name"
-                          placeholder="Your Name"
-                        />
-                        <p className="help-block text-danger">
-                          {formik.errors.firstName &&
-                          formik.touched.firstName ? (
-                            <Alert alert={formik.errors.firstName} />
-                          ) : null}
-                        </p>
+                  <div className="row ">
+                    <h2 className="font-t-c font-bold">Just say Hello !</h2>
+                    <p className="text-gray-300	">Let us know more abuot you !</p>
+                    <div className="col-md-12">
+                      <div className="flex gap-4 ">
+                        <div className="form-group w-1/2">
+                          <input
+                            className="form-control npt-l w-full"
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            onChange={formik.handleChange}
+                            value={formik.values.firstName}
+                            autoComplete="first-name"
+                            placeholder="First Name"
+                          />
+                          <p className="help-block text-danger">
+                            {formik.errors.firstName &&
+                              formik.touched.firstName ? (
+                              <Alert alert={formik.errors.firstName} />
+                            ) : null}
+                          </p>
+                        </div>
+                        <div className="form-group w-1/2">
+                          <input
+                            className="form-control npt-r "
+                            type="text"
+                            name="lastName"
+                            id="lastName"
+                            onChange={formik.handleChange}
+                            value={formik.values.lastName}
+                            autoComplete="last-name"
+                            placeholder="Last Name"
+                          />
+                          <p className="help-block text-danger">
+                            {formik.errors.lastName &&
+                              formik.touched.lastName ? (
+                              <Alert alert={formik.errors.firstName} />
+                            ) : null}
+                          </p>
+                        </div>
                       </div>
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          id="email"
-                          name="email"
-                          type="email"
-                          onChange={formik.handleChange}
-                          value={formik.values.email}
-                          autoComplete="email"
-                          placeholder="Your Email"
-                        />
-                        <p className="help-block text-danger">
-                          {formik.errors.email && formik.touched.email ? (
-                            <Alert alert={formik.errors.email} />
-                          ) : null}
-                        </p>
+                      <div className="flex gap-4">
+                        <div className="form-group w-1/2">
+                          <input
+                            className="form-control npt-l"
+                            id="email"
+                            name="email"
+                            type="email"
+                            onChange={formik.handleChange}
+                            value={formik.values.email}
+                            autoComplete="email"
+                            placeholder="Email"
+                          />
+                          <p className="help-block text-danger">
+                            {formik.errors.email && formik.touched.email ? (
+                              <Alert alert={formik.errors.email} />
+                            ) : null}
+                          </p>
+                        </div>
+                        <div className="form-group w-1/2">
+                          <input
+                            className="form-control npt-r"
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            onChange={formik.handleChange}
+                            value={formik.values.phone}
+                            autoComplete="tel"
+                            aria-describedby="phone-description"
+                            placeholder="Your Phone"
+                          />
+                          <p className="help-block text-danger">
+                            {formik.errors.phone && formik.touched.phone ? (
+                              <Alert alert={formik.errors.phone} />
+                            ) : null}
+                          </p>
+                        </div>
                       </div>
-                      <div className="form-group">
-                        <input
-                          className="form-control"
-                          type="text"
-                          name="phone"
-                          id="phone"
-                          onChange={formik.handleChange}
-                          value={formik.values.phone}
-                          autoComplete="tel"
-                          aria-describedby="phone-description"
-                          placeholder="Your Phone"
-                        />
-                        <p className="help-block text-danger">
-                          {formik.errors.phone && formik.touched.phone ? (
-                            <Alert alert={formik.errors.phone} />
-                          ) : null}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
+
                       <div className="form-group">
                         <textarea
-                          className="form-control"
+                          className="form-control npt"
                           id="message"
                           name="message"
                           aria-describedby="how-can-we-help-description"
@@ -117,20 +146,43 @@ const ContactUs = () => {
                           ) : null}
                         </p>
                       </div>
-                    </div>
-                    <div className="clearfix"></div>
-                    <div className="col-lg-12 text-center">
-                      <div id="success"></div>
                       <button
                         id="sendMessageButton"
-                        className="sim-btn hvr-bounce-to-top"
+                        className="sim-btn hvr-bounce-to-top m-auto btn-bg-i"
                         type="submit"
                       >
                         Send Message
                       </button>
                     </div>
+                    <div className="clearfix"></div>
+                    <div className="col-lg-12 text-center">
+                      <div id="success"></div>
+
+                    </div>
                   </div>
                 </form>
+              </div>
+            </div>
+            <div className="col-md-5 mt-5">
+              <div className=" flex items-center justify-center">
+                <div className="w-1/2 ">
+                  <h2 className="font-t-c font-bold">Contact Information </h2>
+                  <p className="text-gray-300">
+                    6 Ibn Zinky St, Al Gabalayah, Zamalek, Cairo Governorate 4270131
+                  </p>
+                  <p className="text-gray-300">
+                    Call us : <a href="tel:+20227371290">+20 227371290</a>
+                  </p>
+                  <p className=" text-gray-300">
+                    We are open from Sunday - Thursday <br /> 09:00 am - 06:00 pm
+                  </p>
+                  <div className="text-4xl flex justify-around py-3 text-white">
+                    <AiFillTwitterCircle />
+                    <AiFillLinkedin />
+                    <AiFillGithub />
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>

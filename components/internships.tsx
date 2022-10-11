@@ -3,13 +3,13 @@ import imageUrlBuilder from "@sanity/image-url";
 import client from "../client";
 import Link from "next/link";
 
-const Internships = ({ interns, images }: { interns: any, images: string[] }) => {
-
-//   const builder: any = imageUrlBuilder(client);
-
-//   function urlFor(imageLink: string) {
-//     return builder.image(imageLink);
-//   }
+const Internships = ({
+  interns,
+  images,
+}: {
+  interns: any;
+  images: string[];
+}) => {
 
   return (
     <div>
@@ -25,17 +25,14 @@ const Internships = ({ interns, images }: { interns: any, images: string[] }) =>
             </p>
           </div>
           <div className="row">
-            {interns.map((intern) => (
-              <Link href={`/interns/${intern.id.current}`}>
+            {interns.map((intern, idx) => (
+              <Link href={`/interns/${intern.id.current}`} key={idx}>
                 <div className="col-md-4 col-sm-6 col-lg- cursor-pointer">
                   <div className="post-box">
-                    <div className="post-thumb h-64">
-                      <img
-                        src={intern.image}
-                        className="img-fluid h-64"
-                        alt="post-img"
-                      />
-                    </div>
+                    <div
+                      className="post-thumb h-96 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${intern.image})` }}
+                    ></div>
                     <div className="post-info">
                       <h4>{intern.name}</h4>
 

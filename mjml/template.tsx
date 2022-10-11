@@ -107,9 +107,7 @@ export function renderTemplate(job: string) {
               font-size="11px"
               line-height="22px"
               padding="0px 20px"
-            >
-              [[DELIVERY_INFO]]
-            </MjmlText>
+            ></MjmlText>
           </MjmlColumn>
         </MjmlSection>
       </MjmlBody>
