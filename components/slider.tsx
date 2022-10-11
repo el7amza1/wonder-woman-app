@@ -15,8 +15,8 @@ const Slider = () => {
 					<b>Graphic Design</b>
 				</span>
 				<div className="btn-ber">
-					<a className="get_btn hvr-bounce-to-top" href="#">Get started</a>
-					<a className="learn_btn hvr-bounce-to-top" href="#">Learn More</a>
+					<a className="get_btn hvr-bounce-to-top" href="#careers">Get started</a>
+					{/* <a className="learn_btn hvr-bounce-to-top" href="#">Learn More</a> */}
 				</div>
 			</h3>
 		</div>
