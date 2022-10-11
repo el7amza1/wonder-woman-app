@@ -1,11 +1,10 @@
-import { Transition, Dialog } from "@headlessui/react";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { Fragment, Dispatch, SetStateAction } from "react";
 import Alert from "./Alert";
 import { database } from "../lib/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
+import { useState } from "react";
 
 export default function ApplyForm({
   job,
@@ -14,7 +13,8 @@ export default function ApplyForm({
   job: string;
   children: any;
 }) {
-
+  const [coverLetter, setCoverLetter] = useState<Blob>(new Blob());
+  const [pdf, setPdf] = useState<Blob>(new Blob());
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -22,6 +22,7 @@ export default function ApplyForm({
       email: "",
       phone: "",
       pdf: "",
+      coverLetter: "",
     },
     onSubmit: (values: any) => {
       const dbInstance = collection(database, "applicants");
@@ -34,21 +35,24 @@ export default function ApplyForm({
       })
         .then(() => {
           const reader = new FileReader();
-          reader.readAsDataURL(new Blob([values.pdf]));
-          let file64 = "";
+          const reader2 = new FileReader();
           reader.onload = () => {
-            file64 = String(reader.result).split(",")[1];
+            reader2.onload = () => {
+              axios.post("/api/applicant", {
+                values: {
+                  ...values,
+                  pdf: String(reader.result).split(",")[1],
+                  coverLetter: String(reader2.result).split(",")[1],
+                  job,
+                },
+              });
+            };
           };
-          axios.post("/api/applicant", {
-            values: {
-              ...values,
-              pdf: file64,
-              job,
-            },
-          });
+          reader.readAsDataURL(pdf);
+          reader2.readAsDataURL(coverLetter);
         })
         .then(() => {
-          formik.resetForm();
+          // formik.resetForm();
         });
     },
     validationSchema: yup.object({
@@ -56,7 +60,6 @@ export default function ApplyForm({
       lastName: yup.string().required("required"),
       phone: yup.string().required("required"),
       email: yup.string().email().required("required"),
-      pdf: yup.string().required("required"),
     }),
   });
   return (
@@ -66,7 +69,6 @@ export default function ApplyForm({
     >
       {children}
       <div className="relative mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:px-8 ">
-
         <div className="text-start">
           <h2 className="text-3xl font-bold tracking-tight text-gray-100">
             Apply
@@ -94,7 +96,6 @@ export default function ApplyForm({
                     />
                     <p className="help-block text-danger">
                       {formik.errors.firstName && formik.touched.firstName ? (
-
                         <Alert alert={formik.errors.firstName} />
                       ) : null}
                     </p>
@@ -112,7 +113,6 @@ export default function ApplyForm({
                     />
                     <p className="help-block text-danger">
                       {formik.errors.lastName && formik.touched.lastName ? (
-
                         <Alert alert={formik.errors.lastName!} />
                       ) : null}
                     </p>
@@ -160,9 +160,21 @@ export default function ApplyForm({
                     type="file"
                     name="pdf"
                     id="pdf"
-                    value={formik.values.pdf}
-                    onChange={formik.handleChange}
-                    autoComplete="tel"
+                    onChange={(e) => setPdf(e.currentTarget.files![0])}
+                    className="form-control npt-l"
+                  />
+                  <p className="help-block text-danger">
+                    {/* {formik.errors.message && formik.touched.message ? (
+                      <Alert alert={formik.errors.message} />
+                    ) : null} */}
+                  </p>
+                </div>
+                <div className="form-group">
+                  <input
+                    type="file"
+                    name="coverLetter"
+                    id="coverLetter"
+                    onChange={(e) => setCoverLetter(e.currentTarget.files![0])}
                     className="form-control npt-l"
                   />
                   <p className="help-block text-danger">
@@ -177,12 +189,12 @@ export default function ApplyForm({
                   type="submit"
                 >
                   Apply Now
+
                 </button>
               </div>
               <div className="clearfix"></div>
               <div className="col-lg-12 text-center">
                 <div id="success"></div>
-
               </div>
             </div>
           </form>
