@@ -18,7 +18,6 @@ export default async function handler(
     subject: `Thanks for applying!`,
     html: `${renderTemplate(values.job)}`,
   };
-
   const msg2 = {
     to: `marwanashrafzaki98@gmail.com`, // Change to your recipient
     from: "marwanashrafzaki98@gmail.com", // Change to your verified sender
@@ -33,7 +32,13 @@ export default async function handler(
     attachments: [
       {
         content: values.pdf,
-        filename: `${values.firstName}-${values.lastName}.pdf`,
+        filename: `${values.firstName}-${values.lastName}-cv.pdf`,
+        type: "application/pdf",
+        disposition: "attachment",
+      },
+      {
+        content: values.coverLetter,
+        filename: `${values.firstName}-${values.lastName}-coverletter.pdf`,
         type: "application/pdf",
         disposition: "attachment",
       },
