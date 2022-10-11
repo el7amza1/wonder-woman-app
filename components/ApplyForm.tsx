@@ -13,8 +13,8 @@ export default function ApplyForm({
   job: string;
   children: any;
 }) {
-  const [coverLetter, setCoverLetter] = useState();
-  const [pdf, setPdf] = useState();
+  const [coverLetter, setCoverLetter] = useState<Blob>(new Blob());
+  const [pdf, setPdf] = useState<Blob>(new Blob());
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -161,7 +161,7 @@ export default function ApplyForm({
                     type="file"
                     name="pdf"
                     id="pdf"
-                    onChange={(e) => setPdf(e.currentTarget.files[0])}
+                    onChange={(e) => setPdf(e.currentTarget.files![0])}
                     className="form-control npt-l"
                   />
                   <p className="help-block text-danger">
@@ -175,7 +175,7 @@ export default function ApplyForm({
                     type="file"
                     name="coverLetter"
                     id="coverLetter"
-                    onChange={(e) => setCoverLetter(e.currentTarget.files[0])}
+                    onChange={(e) => setCoverLetter(e.currentTarget.files![0])}
                     className="form-control npt-l"
                   />
                   <p className="help-block text-danger">
