@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Link from "next/link"
 
-const Podcast = ({podcasts}) => {
+const Podcast = ({podcasts}:any) => {
  console.log("in", podcasts);
   return (
     <div>
@@ -28,10 +28,11 @@ const Podcast = ({podcasts}) => {
                 <img
                   src={podcast.image}
                   className="img-fluid cursor-pointer"
+
                   alt="Image"
                 />
-                <div className="title-s">{podcast.title}</div>
-                <div className="name-s">{podcast.subtitle}</div>
+                <div className="title-s">{podcast?.title}</div>
+                <div className="name-s">{podcast?.subtitle}</div>
               </div>
             </div>
             </Link>

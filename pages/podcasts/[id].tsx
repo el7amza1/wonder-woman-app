@@ -82,7 +82,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params } :any) {
   const id = params.id;
   const episodes = await client.fetch(
     `*[_type == "episode" && podcast[0]._ref == $id]{..., "audio": file.asset->url,"image": coverArt.asset->url}`,

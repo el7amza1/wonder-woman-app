@@ -13,6 +13,7 @@ import Internships from "../components/internships";
 import { AppProps } from "../types";
 
 const Home: NextPage = ({ interns, departments, team, podcasts }: any) => {
+
   return (
     <div>
       <Slider />
@@ -46,7 +47,7 @@ export async function getStaticProps() {
       jobs,
       team,
       podcasts,
-      departments,
+      departments
     },
   };
 }
