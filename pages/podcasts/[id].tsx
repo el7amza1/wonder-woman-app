@@ -60,7 +60,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params } :any) {
   const id = params.id;
   const episode = await client.fetch(`*[_type == "episode" && _id == $id]{..., "image": coverArt.asset->url}[0]`, { id });
   return {

@@ -12,14 +12,14 @@ import Internships from "../components/internships";
 
 import { AppProps } from "../types";
 
-const Home: NextPage = ({ interns, departments,team } :any) => {
+const Home: NextPage = ({ interns, departments,team ,podcasts} :any) => {
   return (
     <div>
       <Slider />
       <Services departments={departments} />
       <Team team={team} />
-      <Podcast podcasts={podcasts} />
       <Internships interns={interns} />
+      <Podcast podcasts={podcasts} />
       <ContactUs />
     </div>
   );
@@ -42,8 +42,8 @@ export async function getStaticProps() {
       interns,
       jobs,
       team,
-      podcasts
-
+      podcasts,
+      departments
     },
   };
 }
