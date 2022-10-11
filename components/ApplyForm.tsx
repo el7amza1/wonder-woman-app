@@ -1,8 +1,6 @@
-import { Transition, Dialog } from "@headlessui/react";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { Fragment, Dispatch, SetStateAction } from "react";
 import Alert from "./Alert";
 import { database } from "../lib/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
