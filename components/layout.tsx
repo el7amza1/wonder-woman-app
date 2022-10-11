@@ -4,9 +4,9 @@ import Scrollspy from "react-scrollspy";
 import {
   Link,
   animateScroll as scroll,
-  scrollSpy,
-  scroller,
+
 } from "react-scroll";
+import Link2 from "next/link"
 import Head from "next/head";
 const Layout = ({ children }: Props) => {
   const [show , setShow] = useState(false)
@@ -160,18 +160,19 @@ useEffect(() => {
       <div className="copyrights">
         <div className="container">
           <div className="footer-distributed">
-            <a href="/">
+            <Link2 href="/">
               <img className="h-10" src="./images/logo.png" alt="" />
-            </a>
+            </Link2>
 
             <div className="footer-center">
               <p className="footer-links">
-                <a href="/">Home</a>
-                <a href="#">Blog</a>
+                
+                <Link2 href="/">Home</Link2>
+                {/* <a href="#">Blog</a>
                 <a href="#">Pricing</a>
                 <a href="#">About</a>
                 <a href="#">Faq</a>
-                <a href="#">Contact</a>
+                <a href="#">Contact</a> */}
               </p>
             </div>
           </div>
