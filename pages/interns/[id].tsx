@@ -12,7 +12,6 @@ import { ImQuotesLeft } from "react-icons/im";
 
 
 const InternsPage = ({ intern }: { intern: any }) => {
-  console.log(intern);
   return (
     <div>
       <div className="flex justify-center my-5 py-5 ">

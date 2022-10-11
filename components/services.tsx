@@ -1,8 +1,8 @@
 import Link from "next/link";
 import React from "react";
 import { BiPlusMedical } from "react-icons/bi";
-import { Job } from "../types";
-const Services = ({ jobs }: { jobs: Job[] }) => {
+import { AppProps, Job } from "../types";
+const Services = ({ departments }: AppProps) => {
   return (
     <div>
       <div id="careers" className="section lb">
@@ -16,15 +16,17 @@ const Services = ({ jobs }: { jobs: Job[] }) => {
           </div>
 
           <div className="row">
-            {jobs.map((job) => (
-              <Link href={`/job/${job._id}`} key={job._id}>
+            {departments.map((department) => (
+              <Link
+                href={`/department/${department.title}`}
+                key={department._id}
+              >
                 <div className="col-md-4 cursor-pointer">
                   <div className="services-inner-box">
                     <div className="ser-icon">
                       <i className="flaticon-seo"></i>
                     </div>
-                    <h2>{job.title}</h2>
-                    <p>{job.department}</p>
+                    <h2>{department.title}</h2>
                     <span className="icon-p">
                       <BiPlusMedical />
                     </span>

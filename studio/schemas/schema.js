@@ -8,6 +8,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import blockContent from "./blockContent";
 import interns from "./interns";
 import job from "./job";
+import department from "./department";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -24,5 +25,6 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     blockContent,
     job,
+    department,
   ]),
 });
