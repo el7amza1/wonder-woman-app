@@ -2,16 +2,16 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import ContactUs from "../components/contactUs";
-import Internships from "../components/internships";
 import Jobs from "../components/jobs";
 import Services from "../components/services";
 import Slider from "../components/slider";
 import Team from "../components/team";
 import styles from "../styles/Home.module.css";
 import client from "../client";
+import Internships from "../components/internships";
 
 
-const Home: NextPage = ({ interns, jobs, team }) => {
+const Home: NextPage = ({ interns , jobs, team } :any) => {
   return (
     <div>
       <Slider />
