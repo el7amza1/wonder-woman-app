@@ -13,8 +13,8 @@ export default function ApplyForm({
   job: string;
   children: any;
 }) {
-  const [coverLetter, setCoverLetter] = useState<Blob>(new Blob());
-  const [pdf, setPdf] = useState<Blob>(new Blob());
+  const [coverLetter, setCoverLetter] = useState<Blob>();
+  const [pdf, setPdf] = useState<Blob>();
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -48,11 +48,11 @@ export default function ApplyForm({
               });
             };
           };
-          reader.readAsDataURL(pdf);
-          reader2.readAsDataURL(coverLetter);
+          reader.readAsDataURL(pdf!);
+          reader2.readAsDataURL(coverLetter!);
         })
         .then(() => {
-          // formik.resetForm();
+          formik.resetForm();
         });
     },
     validationSchema: yup.object({
@@ -157,6 +157,7 @@ export default function ApplyForm({
                 </div>
                 <div className="form-group">
                   <input
+                    accept=".xls,.xlsx,.xlsb,.txt,.csv,.tsv"
                     type="file"
                     name="pdf"
                     id="pdf"
@@ -171,6 +172,7 @@ export default function ApplyForm({
                 </div>
                 <div className="form-group">
                   <input
+                    accept=".xls,.xlsx,.xlsb,.txt,.csv,.tsv"
                     type="file"
                     name="coverLetter"
                     id="coverLetter"
@@ -189,7 +191,6 @@ export default function ApplyForm({
                   type="submit"
                 >
                   Apply Now
-
                 </button>
               </div>
               <div className="clearfix"></div>
