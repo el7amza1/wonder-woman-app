@@ -33,10 +33,10 @@ const InternsPage = ({ intern }: { intern: any }) => {
           </div>
         </div>
         <div className="w-1/2 ms-5 ps-5 border-solid border-l-2 border-black ">
-          {intern.story.map((item :any) => (
-            <div key={item._id}>
+          {intern?.story.map((item :any) => (
+            <div key={item?._id}>
               <ImQuotesLeft />
-              <p className="text-black">{item.children[0].text}</p>
+              <p className="text-black">{item?.children[0].text}</p>
             </div>
           ))}
         </div>
