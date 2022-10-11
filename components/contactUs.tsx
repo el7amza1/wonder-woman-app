@@ -69,7 +69,7 @@ const ContactUs = () => {
                           <p className="help-block text-danger">
                             {formik.errors.firstName &&
                               formik.touched.firstName ? (
-                              <Alert alert={formik.errors.firstName} />
+                              <Alert alert={formik.errors.firstName!} />
                             ) : null}
                           </p>
                         </div>
@@ -87,7 +87,7 @@ const ContactUs = () => {
                           <p className="help-block text-danger">
                             {formik.errors.lastName &&
                               formik.touched.lastName ? (
-                              <Alert alert={formik.errors.firstName} />
+                              <Alert alert={formik.errors.lastName} />
                             ) : null}
                           </p>
                         </div>
