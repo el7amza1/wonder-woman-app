@@ -59,12 +59,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }:any) {
   const id = params.id;
-  const intern = await client.fetch(
-    `
-  *[_type == "interns" && id.current == $id]{..., "image": image.asset->url}[0]
-`,
-    { id }
-  );
+  const intern = await client.fetch(`*[_type == "interns" && id.current == ${id}]{..., "image": image.asset->url}[0]`, { id });
+
   return {
     props: {
       intern,
