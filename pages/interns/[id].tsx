@@ -10,11 +10,6 @@ import {
 
 import { ImQuotesLeft } from "react-icons/im";
 
-const builder: any = imageUrlBuilder(client);
-
-function urlFor(imageLink: string) {
-  return builder.image(imageLink);
-}
 
 const InternsPage = ({ intern }: { intern: any }) => {
   console.log(intern);
@@ -42,7 +37,7 @@ const InternsPage = ({ intern }: { intern: any }) => {
       <div className="flex justify-center my-5 py-5 ">
         <div>
           <div
-            style={{ backgroundImage: `url(${urlFor(intern.image)})` }}
+            style={{ backgroundImage: `url(${(intern.image)})` }}
             className="w-64 h-96 bg-cover bg-center"
           />
           <h2>{intern.name}</h2>
@@ -86,7 +81,7 @@ export async function getStaticProps({ params }:any) {
   const id = params.id;
   const intern = await client.fetch(
     `
-  *[_type == "interns" && id.current == $id][0]
+  *[_type == "interns" && id.current == $id]{..., "image": image.asset->url}[0]
 `,
     { id }
   );
