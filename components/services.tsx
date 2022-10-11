@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import { BiPlusMedical } from "react-icons/bi";
 import { AppProps, Job } from "../types";
-const Services = ({ departments }: AppProps) => {
+const Services = ({ departments }: any) => {
   return (
     <div>
       <div id="careers" className="section lb">
@@ -16,7 +16,7 @@ const Services = ({ departments }: AppProps) => {
           </div>
 
           <div className="row">
-            {departments.map((department) => (
+            {departments.map((department :any) => (
               <Link
                 href={`/department/${department.title}`}
                 key={department._id}

@@ -13,7 +13,8 @@ const Team = ({ team }:any) => {
           useKeyboardArrows={true}
         >
           {team.map((member:any) => (
-            <div key={member._id}
+            <div
+              key={member._id}
               style={{ backgroundImage: `url(${member.image})` }}
               className="w-full h-screen bg-cover   "
             ></div>
