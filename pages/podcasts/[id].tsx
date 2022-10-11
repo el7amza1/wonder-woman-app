@@ -1,59 +1,81 @@
-import React from 'react'
+import React, { useState } from "react";
 import client from "../../client";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const PodcastPage = ({podcast}:any) => {
+const PodcastPage = ({ episodes }: any) => {
+  const router = useRouter();
+  let { id } = router.query;
+  const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]);
+
+  function selectEpisode(episode) {
+    setSelectedEpisode(episode);
+  }
   return (
-    <div style={{ backgroundImage: 'url(../images/bc-1.jpg)', backgroundSize: 'cover' }}>
-      <div className="h-screen	bg-cover w-full  items-center parallaxie h-full  grid grid-cols-12	 justify-center "  >
-        <div className='col-span-4 h-80 overflow-hidden	'>
-          <div className="w-full ">
-            <div className="gallery-single fix border-0">
-              <img src="../images/podcasts-image.jpg" alt="" />
-              <div className="title-s">title</div>
-              <div className="name-s">podcast name</div>
+    <div>
+      <div
+        id="podcast"
+        style={{
+          backgroundImage: "url(../images/podcast1.jpg)",
+          backgroundSize: "cover",
+        }}
+      >
+        <div className="h-screen	bg-cover w-full  items-center parallaxie h-full grid grid-cols-12	 justify-center ">
+          <div className="col-span-4 h-80 overflow-hidden	">
+            <div className="w-full ">
+              <div className="gallery-single fix border-0">
+                <img src={selectedEpisode.image} alt="" />
+                {/* <div className="title-s">{episode.title}</div>
+                  <div className="name-s">{episode.name}</div> */}
+              </div>
             </div>
           </div>
-        </div>
-        <div className='col-span-8 	pod-s align-center flex flex-col items-center justify-centerg' >
-          
-          <h2>title</h2>
-          <p>description</p>
-          <audio controls >
-            <source src="/html5/audio.ogg" type="audio/ogg" />
-          </audio>
-          {/* <button className="w-30 get_btn hvr-bounce-to-top" style={{    width: "150px"}}>Get started</button> */}
 
+          <div className="col-span-8 	pod-s align-center flex flex-col items-center justify-centerg">
+            <h2>{selectedEpisode.title}</h2>
+            <p>{selectedEpisode.description}</p>
+            <audio controls>
+              <source src={selectedEpisode.audio} type="audio/ogg" />
+            </audio>
+          </div>
         </div>
       </div>
-      <div className="gallery-list row">
-        <div className="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
-          <div className="gallery-single fix">
-            <img src="../uploads/gallery_img-01.jpg" className="img-fluid" alt="Image" />
-            <div className="title-s">title</div>
-            <div className="name-s">podcast name</div>
-          </div>
-        </div>
-
-        <div className="col-md-4 col-sm-6 gallery-grid gal_c gal_b">
-          <div className="gallery-single fix">
-            <img src="../uploads/gallery_img-02.jpg" className="img-fluid" alt="Image" />
-            <div className="title-s">title</div>
-            <div className="name-s">podcast name</div>
-          </div>
-        </div>
+      <div className="gallery-list row" style={{ background: "#212322" }}>
+        {episodes.map((episode) => {
+          if (episode._id !== selectedEpisode._id) {
+            return (
+              <div
+                className="col-md-4 col-sm-6 gallery-grid gal_a gal_b"
+                onClick={() => selectEpisode(episode)}
+              >
+                <div className="gallery-single fix">
+                  <Link href="#podcast">
+                    <img
+                      src={episode.image}
+                      className="img-fluid cursor-pointer"
+                      alt="Image"
+                    />
+                  </Link>
+                  <div className="title-s">{episode.title}</div>
+                  <div className="name-s">{episode.name}</div>
+                </div>
+              </div>
+            );
+          }
+        })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export async function getStaticPaths() {
-  const episodes = await client.fetch(`*[_type == "episode"]`);
-  const paths = episodes.map((episode:any) => {
+  const podcasts = await client.fetch(`*[_type == "podcast"]`);
+  const paths = podcasts.map((podcast: any) => {
     return {
-      params: { id: episode._id },
+      params: { id: podcast._id },
     };
   });
-  console.log("paths" , paths);
+  console.log("paths", paths);
   return {
     paths,
     fallback: true,
@@ -62,11 +84,15 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const id = params.id;
-  const episode = await client.fetch(`*[_type == "episode" && _id == $id]{..., "image": coverArt.asset->url}[0]`, { id });
+  const episodes = await client.fetch(
+    `*[_type == "episode" && podcast[0]._ref == $id]{..., "audio": file.asset->url,"image": coverArt.asset->url}`,
+    { id }
+  );
+  console.log(episodes);
   return {
     props: {
-      episode,
+      episodes,
     },
   };
 }
-export default PodcastPage
+export default PodcastPage;

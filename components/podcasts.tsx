@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Link from "next/link"
 
 const Podcast = ({podcasts}) => {
  console.log("in", podcasts);
@@ -21,17 +22,19 @@ const Podcast = ({podcasts}) => {
 
           <div className="gallery-list row">
             {podcasts.map((podcast) => 
+            <Link href={`/podcasts/${podcast._id}`}>
             <div className="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
               <div className="gallery-single fix">
                 <img
                   src={podcast.image}
-                  className="img-fluid"
+                  className="img-fluid cursor-pointer"
                   alt="Image"
                 />
                 <div className="title-s">{podcast.title}</div>
                 <div className="name-s">{podcast.subtitle}</div>
               </div>
             </div>
+            </Link>
             )}
           </div>
         </div>
