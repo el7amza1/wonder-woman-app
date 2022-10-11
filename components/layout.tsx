@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Props } from "../types";
 import Scrollspy from "react-scrollspy";
 import {
   Link,
   animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
-import Head from "next/head";
 
+} from "react-scroll";
+import Link2 from "next/link"
+import Head from "next/head";
 const Layout = ({ children }: Props) => {
+  const [show , setShow] = useState(false)
+  const [scrolll , setScroll] = useState(false)
+ 
+useEffect(() => {
+  const handleScroll = (event:any) => {
+    window.scrollY > 50 ? setScroll(true): setScroll(false)
+  };
+
+  window.addEventListener('scroll', handleScroll);
+
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+  
   return (
     <div>
       <Head>
@@ -20,27 +34,28 @@ const Layout = ({ children }: Props) => {
         />
       </Head>
       <nav
-        className="navbar navbar-expand-lg navbar-dark fixed-top"
-        style={{ background: "#af3b6e" }}
+        className={ scrolll ?"navbar navbar-expand-lg navbar-dark fixed-top nav-bg":"navbar navbar-expand-lg navbar-dark fixed-top "}
         id="mainNav"
       >
-        <div className="container">
-          {/* <a className="navbar-brand js-scroll-trigger" href="#page-top">
-        <svg className="wt-logo" role="img"><title>Wunderman Thompson</title><use href="#40b66408b68b0d881ddb6afded3b01f0"></use></svg>
-		</a> */}
+        <div className="container flex justify-between">
+        <Link2 href="/">
+              <img src="./images/logo.png" alt=""  style={{width:"120px"}}/>
+              </Link2>
+        
           <button
             className="navbar-toggler navbar-toggler-right"
             type="button"
             data-toggle="collapse"
             data-target="#navbarResponsive"
             aria-controls="navbarResponsive"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
+            onClick={()=>setShow(!show)}
           >
             Menu
             <i className="fa fa-bars"></i>
           </button>
-          <div className="collapse navbar-collapse" id="navbarResponsive">
+          <div className={show? "collapse navbar-collapse show":"collapse navbar-collapse"} id="navbarResponsive">
             <Scrollspy
               className="navbar-nav text-uppercase ml-auto"
               items={[
@@ -53,6 +68,9 @@ const Layout = ({ children }: Props) => {
               ]}
               currentClassName="active"
             >
+              <div className="">
+              
+
               <ul className="navbar-nav text-uppercase ml-auto">
                 <li className="nav-item">
                   <Link
@@ -61,6 +79,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="home"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Home
                   </Link>
@@ -70,8 +90,10 @@ const Layout = ({ children }: Props) => {
                     activeClass="active"
                     spy={true}
                     smooth={false}
-                    to="services"
+                    to="careers"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Careers
                   </Link>
@@ -83,6 +105,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="team"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Our Team
                   </Link>
@@ -94,6 +118,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="interns"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Interns
                   </Link>
@@ -105,6 +131,8 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="podcasts"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Podcasts
                   </Link>
@@ -116,11 +144,14 @@ const Layout = ({ children }: Props) => {
                     smooth={false}
                     to="contact"
                     className="nav-link "
+                    onClick={()=>setShow(false)}
+
                   >
                     Contect Us
                   </Link>
                 </li>
               </ul>
+              </div>
             </Scrollspy>
           </div>
         </div>
@@ -129,18 +160,15 @@ const Layout = ({ children }: Props) => {
       <div className="copyrights">
         <div className="container">
           <div className="footer-distributed">
-            <a href="#">
+            <Link2 href="/">
               <img className="h-10" src="./images/logo.png" alt="" />
-            </a>
+            </Link2>
 
             <div className="footer-center">
               <p className="footer-links">
-                <a href="/">Home</a>
-                <a href="#">Blog</a>
-                <a href="#">Pricing</a>
-                <a href="#">About</a>
-                <a href="#">Faq</a>
-                <a href="#">Contact</a>
+                
+                <Link2 href="/">Home</Link2>
+               
               </p>
             </div>
           </div>

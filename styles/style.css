@@ -2215,11 +2215,11 @@ select.mobile-device {
 
 }
 .contact_form  .npt-l{
-    border-radius: 100px 100px 0px 100px ;
+    border-radius: 100px 100px 100px 100px ;
 
 }
 .contact_form  .npt-r{
-    border-radius: 100px 100px 100px 0px ;
+    border-radius: 100px 100px 100px 100px ;
 
 }
 .contact_form  .npt{
@@ -2687,4 +2687,10 @@ html, body {
     .btn-bg-i{
         background: #85858570 !important;
 
+    }
+
+    .nav-bg{
+        background: #af3b6e !important;
+     
+        transition: 1.5s all ;
     }

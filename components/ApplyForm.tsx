@@ -14,6 +14,7 @@ export default function ApplyForm({
   job: string;
   children: any;
 }) {
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -65,6 +66,7 @@ export default function ApplyForm({
     >
       {children}
       <div className="relative mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:px-8 ">
+
         <div className="text-start">
           <h2 className="text-3xl font-bold tracking-tight text-gray-100">
             Apply
@@ -92,6 +94,7 @@ export default function ApplyForm({
                     />
                     <p className="help-block text-danger">
                       {formik.errors.firstName && formik.touched.firstName ? (
+
                         <Alert alert={formik.errors.firstName} />
                       ) : null}
                     </p>
@@ -109,7 +112,8 @@ export default function ApplyForm({
                     />
                     <p className="help-block text-danger">
                       {formik.errors.lastName && formik.touched.lastName ? (
-                        <Alert alert={formik.errors.firstName!} />
+
+                        <Alert alert={formik.errors.lastName!} />
                       ) : null}
                     </p>
                   </div>
@@ -179,6 +183,7 @@ export default function ApplyForm({
               <div className="clearfix"></div>
               <div className="col-lg-12 text-center">
                 <div id="success"></div>
+
               </div>
             </div>
           </form>

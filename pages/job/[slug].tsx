@@ -10,7 +10,7 @@ import PortableText from "@sanity/block-content-to-react";
 const Job = ({ job }: { job: Job }): JSX.Element => {
   return job ? (
     <div>
-      <div className="relative bg-indigo-800">
+      <div className="relative bg-indigo-800 ">
         <div className="absolute inset-0">
           <img
             className="h-full w-full object-cover"

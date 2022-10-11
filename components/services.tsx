@@ -5,7 +5,7 @@ import { AppProps, Job } from "../types";
 const Services = ({ departments }: AppProps) => {
   return (
     <div>
-      <div id="services" className="section lb">
+      <div id="careers" className="section lb">
         <div className="container">
           <div className="section-title text-center">
             <h3>Careers</h3>
