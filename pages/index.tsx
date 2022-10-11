@@ -12,12 +12,12 @@ import Internships from "../components/internships";
 
 import { AppProps } from "../types";
 
-const Home: NextPage = ({ interns, departments }) => {
+const Home: NextPage = ({ interns, departments,team } :any) => {
   return (
     <div>
       <Slider />
       <Services departments={departments} />
-      <Team />
+      <Team team={team} />
       <Internships interns={interns} />
       <Jobs />
       <ContactUs />
@@ -40,6 +40,7 @@ export async function getStaticProps() {
     props: {
       interns,
       departments,
+      team
     },
   };
 }

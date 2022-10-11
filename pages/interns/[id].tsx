@@ -22,7 +22,7 @@ const InternsPage = ({ intern }: { intern: any }) => {
           />
           <h2>{intern.name}</h2>
           <div>
-            <p>Department: {intern.department}</p>
+            <p>  {intern.department} intern </p>
             <div className="text-4xl flex justify-around py-3">
               <AiFillTwitterCircle />
               <AiFillLinkedin />
