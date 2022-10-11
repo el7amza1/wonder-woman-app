@@ -1,6 +1,7 @@
 import React from 'react'
+import client from "../../client";
 
-const PodcastPage = () => {
+const PodcastPage = ({podcast}) => {
   return (
     <div style={{ backgroundImage: 'url(../images/bc-1.jpg)', backgroundSize: 'cover' }}>
       <div className="h-screen	bg-cover w-full  items-center parallaxie h-full  grid grid-cols-12	 justify-center "  >
@@ -9,7 +10,7 @@ const PodcastPage = () => {
             <div className="gallery-single fix border-0">
               <img src="../images/podcasts-image.jpg" alt="" />
               <div className="title-s">title</div>
-              <div className="name-s">bordcast name</div>
+              <div className="name-s">podcast name</div>
             </div>
           </div>
         </div>
@@ -37,7 +38,7 @@ const PodcastPage = () => {
           <div className="gallery-single fix">
             <img src="../uploads/gallery_img-02.jpg" className="img-fluid" alt="Image" />
             <div className="title-s">title</div>
-            <div className="name-s">bordcast name</div>
+            <div className="name-s">podcast name</div>
           </div>
         </div>
       </div>
@@ -45,4 +46,27 @@ const PodcastPage = () => {
   )
 }
 
+export async function getStaticPaths() {
+  const episodes = await client.fetch(`*[_type == "episode"]`);
+  const paths = episodes.map((episode) => {
+    return {
+      params: { id: episode._id },
+    };
+  });
+  console.log("paths" , paths);
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const id = params.id;
+  const episode = await client.fetch(`*[_type == "episode" && _id == $id]{..., "image": coverArt.asset->url}[0]`, { id });
+  return {
+    props: {
+      episode,
+    },
+  };
+}
 export default PodcastPage

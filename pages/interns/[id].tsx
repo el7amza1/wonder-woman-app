@@ -1,5 +1,4 @@
 import React from "react";
-import imageUrlBuilder from "@sanity/image-url";
 import client from "../../client";
 
 import {
@@ -10,20 +9,20 @@ import {
 
 import { ImQuotesLeft } from "react-icons/im";
 
-
 const InternsPage = ({ intern }: { intern: any }) => {
-  console.log(intern);
-  
+
   return (
     <div>
       <div className="flex justify-center my-5 py-5 ">
         <div>
           <div
+
             style={{ backgroundImage: `url(${intern?.image})` }}
             className="w-64 h-96 bg-cover bg-center"
           />
           <h2>{intern?.name}</h2>
           <div>
+
             <p>  {intern?.department} intern </p>
             <div className="text-4xl flex justify-around py-3">
               <AiFillTwitterCircle />
@@ -61,6 +60,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }:any) {
   const id = params.id;
+
   const intern = await client.fetch(`
   
   *[_type == "interns" && id.current == $id]{..., "image": image.asset->url}[0]`, { id });

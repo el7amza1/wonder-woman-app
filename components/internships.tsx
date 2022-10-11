@@ -8,11 +8,6 @@ const Internships = ({
 }: {
   interns: any;
 }) => {
-  const builder: any = imageUrlBuilder(client);
-
-  function urlFor(imageLink: string) {
-    return builder.image(imageLink);
-  }
 
   return (
     <div>
