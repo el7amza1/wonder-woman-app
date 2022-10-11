@@ -10,14 +10,15 @@ import styles from "../styles/Home.module.css";
 import client from "../client";
 import Internships from "../components/internships";
 
+import { AppProps } from "../types";
 
-const Home: NextPage = ({ interns , jobs, team } :any) => {
+const Home: NextPage = ({ interns, departments }) => {
   return (
     <div>
       <Slider />
-      <Services jobs={jobs} />
-      <Team team={team} />
-      <Internships interns={interns}  />
+      <Services departments={departments} />
+      <Team />
+      <Internships interns={interns} />
       <Jobs />
       <ContactUs />
     </div>
@@ -25,17 +26,21 @@ const Home: NextPage = ({ interns , jobs, team } :any) => {
 };
 export default Home;
 export async function getStaticProps() {
+
   const interns = await client.fetch(`*[_type == "interns"]{..., "image": image.asset->url}| order(_createdAt desc) [0...3]`)
   const team = await client.fetch(`*[_type == "ourTeam"]{..., "image": image.asset->url}`)
   console.log(team);
   const jobs = await client.fetch(
     `*[_type == "job"] | order(_createdAt desc) [0...5]`
+
   );
+
+  const departments = await client.fetch(`*[_type == "department"]`);
   return {
     props: {
       interns,
-      jobs,
-      team
-    }
-  }
+      departments,
+    },
+  };
 }
+

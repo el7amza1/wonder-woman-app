@@ -25,8 +25,27 @@ export default {
     },
     {
       name: "description",
-      type: "string",
+      type: "array",
       title: "Description",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "responsibilities",
+      type: "array",
+      title: "Responsibilities",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "skills",
+      type: "array",
+      title: "Skills",
+      of: [{ type: "block" }],
+    },
+    {
+      name: "requirements",
+      type: "array",
+      title: "Requirements",
+      of: [{ type: "block" }],
     },
     {
       name: "closeDate",

@@ -12,7 +12,6 @@ import { ImQuotesLeft } from "react-icons/im";
 
 
 const InternsPage = ({ intern }: { intern: any }) => {
-  console.log(intern);
   return (
     <div>
       {/* <div className="relative bg-indigo-800">
