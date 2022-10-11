@@ -62,7 +62,7 @@ const Job = ({ job }: { job: Job }): JSX.Element => {
               {<PortableText blocks={job.description} />}
             </div>
             <div className="text-white">
-              <h2 className="text-xl font-bold text-white">What you'll do: </h2>
+              <h2 className="text-xl font-bold text-white">What you&apos;ll do: </h2>
               {<PortableText blocks={job.responsibilities} />}
             </div>
             <div className="text-white">
@@ -71,7 +71,7 @@ const Job = ({ job }: { job: Job }): JSX.Element => {
             </div>
             <div className="text-white">
               <h2 className="text-xl font-bold text-white">
-                What You'll Need:{" "}
+                What You&apos;ll Need:{" "}
               </h2>
               {<PortableText blocks={job.requirements} />}
             </div>
