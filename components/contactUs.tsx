@@ -106,7 +106,7 @@ const ContactUs = () => {
                           />
                           <p className="help-block text-danger">
                             {formik.errors.email && formik.touched.email ? (
-                              <Alert alert={formik.errors.email} />
+                              <Alert alert={formik.errors.email!} />
                             ) : null}
                           </p>
                         </div>
