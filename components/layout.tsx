@@ -38,9 +38,9 @@ useEffect(() => {
         id="mainNav"
       >
         <div className="container flex justify-between">
-        <a href="/">
+        <Link2 href="/">
               <img src="./images/logo.png" alt=""  style={{width:"120px"}}/>
-              </a>
+              </Link2>
         
           <button
             className="navbar-toggler navbar-toggler-right"
@@ -168,11 +168,7 @@ useEffect(() => {
               <p className="footer-links">
                 
                 <Link2 href="/">Home</Link2>
-                {/* <a href="#">Blog</a>
-                <a href="#">Pricing</a>
-                <a href="#">About</a>
-                <a href="#">Faq</a>
-                <a href="#">Contact</a> */}
+               
               </p>
             </div>
           </div>
