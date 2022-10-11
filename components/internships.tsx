@@ -5,10 +5,8 @@ import Link from "next/link";
 
 const Internships = ({
   interns,
-  images,
 }: {
   interns: any;
-  images: string[];
 }) => {
 
   return (
@@ -25,7 +23,7 @@ const Internships = ({
             </p>
           </div>
           <div className="row">
-            {interns.map((intern, idx) => (
+            {interns.map((intern :any , idx :any) => (
               <Link href={`/interns/${intern.id.current}`} key={idx}>
                 <div className="col-md-4 col-sm-6 col-lg- cursor-pointer">
                   <div className="post-box">

@@ -9,6 +9,7 @@ import blockContent from "./blockContent";
 import interns from "./interns";
 import job from "./job";
 import ourTeam from "./ourTeam";
+import department from "./department";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,5 +21,6 @@ export default createSchema({
     blockContent,
     ourTeam,
     job,
+    department,
   ]),
 });

@@ -1,13 +1,18 @@
-import { Transition, Dialog } from "@headlessui/react";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as yup from "yup";
-import { Fragment, Dispatch, SetStateAction } from "react";
 import Alert from "./Alert";
 import { database } from "../lib/firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
 
-export default function ApplyForm({ job ,children }: { job: string , children:any }) {
+export default function ApplyForm({
+  job,
+  children,
+}: {
+  job: string;
+  children: any;
+}) {
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -53,9 +58,13 @@ export default function ApplyForm({ job ,children }: { job: string , children:an
     }),
   });
   return (
-    <div className="overflow-hidden bg-white py-10 px-4 sm:px-6 lg:px-8"  style={{ background: "url(../images/form-bg.jpg)" }}>
+    <div
+      className="overflow-hidden bg-white py-10 px-4 sm:px-6 lg:px-8"
+      style={{ background: "url(../images/form-bg.jpg)" }}
+    >
       {children}
-      <div className="relative mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:px-8 " >
+      <div className="relative mx-auto max-w-7xl py-10 px-4 sm:px-6 lg:px-8 ">
+
         <div className="text-start">
           <h2 className="text-3xl font-bold tracking-tight text-gray-100">
             Apply
@@ -82,8 +91,8 @@ export default function ApplyForm({ job ,children }: { job: string , children:an
                       placeholder="First Name"
                     />
                     <p className="help-block text-danger">
-                      {formik.errors.firstName &&
-                        formik.touched.firstName ? (
+                      {formik.errors.firstName && formik.touched.firstName ? (
+
                         <Alert alert={formik.errors.firstName} />
                       ) : null}
                     </p>
@@ -100,9 +109,9 @@ export default function ApplyForm({ job ,children }: { job: string , children:an
                       placeholder="Last Name"
                     />
                     <p className="help-block text-danger">
-                      {formik.errors.lastName &&
-                        formik.touched.lastName ? (
-                        <Alert alert={formik.errors.firstName!} />
+                      {formik.errors.lastName && formik.touched.lastName ? (
+
+                        <Alert alert={formik.errors.lastName!} />
                       ) : null}
                     </p>
                   </div>
