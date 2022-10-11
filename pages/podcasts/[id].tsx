@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import client from "../../client";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Audio from "../../components/Audio";
 
 const PodcastPage = ({ episodes }: any) => {
   const router = useRouter();
@@ -37,6 +38,9 @@ const PodcastPage = ({ episodes }: any) => {
             <audio controls>
               <source src={selectedEpisode.audio} type="audio/ogg" />
             </audio>
+            <div>
+              <Audio/>
+            </div>
           </div>
         </div>
       </div>
