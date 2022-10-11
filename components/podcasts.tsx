@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Podcast = ({podcasts}) => {
+const Podcast = ({podcasts}:any) => {
  console.log("in", podcasts);
   return (
     <div>
@@ -20,16 +20,16 @@ const Podcast = ({podcasts}) => {
         
 
           <div className="gallery-list row">
-            {podcasts.map((podcast) => 
-            <div className="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
+            {podcasts.map((podcast:any,inx:any) => 
+            <div key={inx} className="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
               <div className="gallery-single fix">
                 <img
-                  src={podcast.image}
+                  src={podcast?.image}
                   className="img-fluid"
                   alt="Image"
                 />
-                <div className="title-s">{podcast.title}</div>
-                <div className="name-s">{podcast.subtitle}</div>
+                <div className="title-s">{podcast?.title}</div>
+                <div className="name-s">{podcast?.subtitle}</div>
               </div>
             </div>
             )}
