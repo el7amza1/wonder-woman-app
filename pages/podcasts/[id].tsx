@@ -1,7 +1,7 @@
 import React from 'react'
 import client from "../../client";
 
-const PodcastPage = ({podcast}) => {
+const PodcastPage = ({podcast}:any) => {
   return (
     <div style={{ backgroundImage: 'url(../images/bc-1.jpg)', backgroundSize: 'cover' }}>
       <div className="h-screen	bg-cover w-full  items-center parallaxie h-full  grid grid-cols-12	 justify-center "  >
@@ -48,7 +48,7 @@ const PodcastPage = ({podcast}) => {
 
 export async function getStaticPaths() {
   const episodes = await client.fetch(`*[_type == "episode"]`);
-  const paths = episodes.map((episode) => {
+  const paths = episodes.map((episode:any) => {
     return {
       params: { id: episode._id },
     };
