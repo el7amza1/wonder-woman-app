@@ -1,17 +1,17 @@
 import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-const Team = ({ team }:any) => {
+const Team = ({ team }: any) => {
   return (
-    <div  id="team"className="bg-g1 wb pt-6 ">
-      <div  className="  ">
-      <div className="section-title text-center">
-            <h3>Our Team</h3>
-            <p>
-              Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
-              vehicula enim, non aliquam risus.
-            </p>
-          </div>
+    <div id="team" className="bg-g1 wb pt-12 ">
+      <div className="  ">
+        <div className="section-title text-center">
+          <h3>Our Team</h3>
+          <p>
+            Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
+            vehicula enim, non aliquam risus.
+          </p>
+        </div>
         <Carousel
           className="overflow-hidden"
           autoPlay={true}
@@ -19,12 +19,16 @@ const Team = ({ team }:any) => {
           stopOnHover={true}
           useKeyboardArrows={true}
         >
-          {team.map((member:any) => (
-            <div
-              key={member._id}
-              style={{ backgroundImage: `url(${member.image})` }}
-              className="w-full h-screen bg-cover   "
-            ></div>
+          {team.map((member: any) => (
+            <div style={{ backgroundImage: `url(${member.image})`, backgroundSize: "cover", backdropFilter: "blur(10px )"}} >
+              <div style={{ backgroundColor: "#000000b5" , backdropFilter: "blur(10px )"}}>
+                <div
+                  key={member._id}
+                  style={{ backgroundImage: `url(${member.image})`, backgroundSize: "contain", backgroundRepeat: "no-repeat", backgroundPosition: "center",height:"550px" }}
+                  className="w-full h-screen    "
+                ></div>
+              </div>
+            </div>
           ))}
         </Carousel>
       </div>
