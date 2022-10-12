@@ -9,7 +9,7 @@ const PodcastPage = ({ episodes }: any) => {
   let { id } = router.query;
   const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]);
 
-  function selectEpisode(episode) {
+  function selectEpisode(episode: any) {
     setSelectedEpisode(episode);
   }
   return (
@@ -32,23 +32,24 @@ const PodcastPage = ({ episodes }: any) => {
             </div>
           </div>
 
-          <div className="col-span-8 	pod-s align-center flex flex-col items-center justify-centerg">
+          <div className="	pod-s align-center flex flex-col items-center justify-center">
             <h2>{selectedEpisode.title}</h2>
             <p>{selectedEpisode.description}</p>
             <audio controls>
               <source src={selectedEpisode.audio} type="audio/ogg" />
             </audio>
             <div>
-              <Audio/>
+              <Audio />
             </div>
           </div>
         </div>
       </div>
       <div className="gallery-list row" style={{ background: "#212322" }}>
-        {episodes.map((episode) => {
+        {episodes.map((episode: any, index: number) => {
           if (episode._id !== selectedEpisode._id) {
             return (
               <div
+                key={index}
                 className="col-md-4 col-sm-6 gallery-grid gal_a gal_b"
                 onClick={() => selectEpisode(episode)}
               >
@@ -86,7 +87,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params } :any) {
+export async function getStaticProps({ params }: any) {
   const id = params.id;
   const episodes = await client.fetch(
     `*[_type == "episode" && podcast[0]._ref == $id]{..., "audio": file.asset->url,"image": coverArt.asset->url}`,
