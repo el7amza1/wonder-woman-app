@@ -34,11 +34,10 @@ const ContactUs = () => {
     <div>
       <div id="contact" className="section db" style={{ background: "url(./images/form-bg.jpg)" }} >
         <div className="container">
-          <div className="section-title text-center">
+          <div className="section-title text-center mt-10">
             <h3 className="text-white  ">Contact</h3>
             <p >
-              Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
-              vehicula enim, non aliquam risus.
+            We would love to hear from you! Leave us a message below and we will get back to you as soon as we can
             </p>
           </div>
           <div className="row">
@@ -51,8 +50,8 @@ const ContactUs = () => {
                   onSubmit={formik.handleSubmit}
                 >
                   <div className="row ">
-                    <h2 className="font-t-c font-bold">Just say Hello !</h2>
-                    <p className="text-gray-300	">Let us know more abuot you !</p>
+                    <h2 className="font-t-c font-bold">Get in touch !</h2>
+                    <p className="text-gray-300	">Leave us your details below !</p>
                     <div className="col-md-12">
                       <div className="flex gap-4 ">
                         <div className="form-group w-1/2">

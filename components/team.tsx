@@ -5,11 +5,10 @@ const Team = ({ team }: any) => {
   return (
     <div id="team" className="bg-g1 wb pt-12 ">
       <div className="  ">
-        <div className="section-title text-center">
+        <div className="section-title text-center mt-10">
           <h3>Our Team</h3>
           <p>
-            Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
-            vehicula enim, non aliquam risus.
+          Meet women who have chosen to make a career at Wunderman Thompson
           </p>
         </div>
         <Carousel
@@ -20,7 +19,7 @@ const Team = ({ team }: any) => {
           useKeyboardArrows={true}
         >
           {team.map((member: any) => (
-            <div style={{ backgroundImage: `url(${member.image})`, backgroundSize: "cover", backdropFilter: "blur(10px )"}} >
+            <div style={{ backgroundImage: `url(${member.image})`, backgroundSize: "cover", backdropFilter: "blur(15px )"}} >
               <div style={{ backgroundColor: "#000000b5" , backdropFilter: "blur(10px )"}}>
                 <div
                   key={member._id}

@@ -7,7 +7,7 @@ const Services = ({ departments }: any) => {
     <div>
       <div id="careers" className="section lb">
         <div className="container">
-          <div className="section-title text-center">
+          <div className="section-title text-center mt-10">
             <h3>Careers</h3>
             <p>
               Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis

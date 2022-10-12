@@ -13,13 +13,12 @@ const Internships = ({
     <div>
       <div id="interns" className="section lb">
         <div className="container">
-          <div className="section-title text-center">
-            <h3>Interns</h3>
+          <div className="section-title text-center mt-10">
+            <h3 >Interns</h3>
             <p>
-              {" "}
-              We were interested in finding out more about our interns, so we
-              interviewed a bunch and asked the other half to blog about their
-              experience. Find out what they said…
+            Our people are our greatest strength. Some of our best team members started as interns with us.
+
+
             </p>
           </div>
           <div className="row">
