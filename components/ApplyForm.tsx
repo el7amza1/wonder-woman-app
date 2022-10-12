@@ -182,7 +182,7 @@ export default function ApplyForm({
                       </div>
                       <input id="coverLetter" type="file" name="coverLetter"
                         className=" opacity-0" 
-                        onChange={(e) => setPdf(e.currentTarget.files![0])} />
+                        onChange={(e) => setCoverLetter(e.currentTarget.files![0])} />
                     </label>
                   </div>
                   
