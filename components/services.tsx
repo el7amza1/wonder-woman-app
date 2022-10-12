@@ -10,8 +10,7 @@ const Services = ({ departments }: any) => {
           <div className="section-title text-center mt-10">
             <h3>Careers</h3>
             <p>
-              Quisque eget nisl id nulla sagittis auctor quis id. Aliquam quis
-              vehicula enim, non aliquam risus.
+            We're always on the lookout for new talent. We would love to receive your application for our open positions.
             </p>
           </div>
 
