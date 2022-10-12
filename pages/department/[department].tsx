@@ -37,8 +37,8 @@ const Department = ({ jobs }: AppProps) => {
   };
 
   return (
-    <div className="mt-16 flex flex-col h-auto min-h-screen">
-      <h2 className="px-3">{department} Jobs</h2>
+    <div className="mt-16 flex flex-col h-auto min-h-screen pt-10">
+      <h2 className="px-3 mt-">{department} Jobs</h2>
       {allJobs.length > 0 ? (
         <table className="min-w-full divide-y divide-gray-300">
           <thead>

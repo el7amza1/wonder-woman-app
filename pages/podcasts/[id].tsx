@@ -7,7 +7,7 @@ import Audio from "../../components/Audio";
 const PodcastPage = ({ episodes }: any) => {
   const router = useRouter();
   let { id } = router.query;
-  const [selectedEpisode, setSelectedEpisode] = useState<any>();
+  const [selectedEpisode, setSelectedEpisode] = useState<any>(episodes[0]);
 
   function selectEpisode(episode: any) {
     setSelectedEpisode(episode);
