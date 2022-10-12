@@ -7,7 +7,7 @@ import Audio from "../../components/Audio";
 const PodcastPage = ({ episodes }: any) => {
   const router = useRouter();
   let { id } = router.query;
-  const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]|| []);
+  const [selectedEpisode, setSelectedEpisode] = useState<any>();
 
   function selectEpisode(episode: any) {
     setSelectedEpisode(episode);
@@ -21,19 +21,20 @@ const PodcastPage = ({ episodes }: any) => {
           backgroundSize: "cover",
         }}
       >
-        <div className="h-screen	bg-cover w-full  items-center parallaxie h-full grid grid-cols-12	 justify-center ">
+        <div className="h-screen	bg-cover w-full  items-center parallaxie h-full grid grid-cols-12	 justify-center  items-center">
           <div className="col-span-4 h-80 overflow-hidden	">
-            <div className="w-full ">
-              <div className="gallery-single fix border-0">
-                <img src={selectedEpisode?.image} alt="" />
+            <div className="w-full h-full pt-20 ">
+              <div className="text-white text-center flex items-center justify-center ">
+                {/* <img src={selectedEpisode?.image} alt="" /> */}
                 {/* <div className="title-s">{episode.title}</div>
                   <div className="name-s">{episode.name}</div> */}
+                  <h2 className=" text-white font-bold text-6xl">{selectedEpisode?.title}</h2>
               </div>
             </div>
           </div>
 
           <div className="col-span-8	 pod-s align-center flex flex-col  items-center justify-center">
-            <h2>{selectedEpisode?.title}</h2>
+            
             <p className="px-5">{selectedEpisode?.description}</p>
             <audio controls>
               <source src={selectedEpisode?.audio} type="audio/ogg" />
