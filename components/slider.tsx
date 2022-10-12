@@ -5,7 +5,7 @@ const Slider = () => {
     <div>
       <section id="home" className="main-banner parallaxie h-full md:py-5" style={{background:'url(./images/bg.png)'}} >
 		<div className="heading">
-			<h1>Welcome to <br/> WunderWoman</h1>			
+			<h1 className='md:text-xl'>Welcome to <br/> WunderWoman</h1>			
 			<h3 className="cd-headline clip is-full-width">
 				<span>by Wunderman Thompson</span>
 				
