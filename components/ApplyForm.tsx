@@ -181,7 +181,7 @@ export default function ApplyForm({
                         <span className=" text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload Cover Letter</span></span>
                       </div>
                       <input id="dropzone-file coverLetter" type="file" name="coverLetter"
-                        className="hidden" accept=".xls,.xlsx,.xlsb,.txt,.csv,.tsv"
+                        className="invisible" accept=".xls,.xlsx,.xlsb,.txt,.csv,.tsv"
                         onChange={(e) => setPdf(e.currentTarget.files![0])} />
                     </label>
                   </div>
