@@ -7,7 +7,7 @@ import Audio from "../../components/Audio";
 const PodcastPage = ({ episodes }: any) => {
   const router = useRouter();
   let { id } = router.query;
-  const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]);
+  const [selectedEpisode, setSelectedEpisode] = useState(episodes[0]|| []);
 
   function selectEpisode(episode: any) {
     setSelectedEpisode(episode);
@@ -25,18 +25,18 @@ const PodcastPage = ({ episodes }: any) => {
           <div className="col-span-4 h-80 overflow-hidden	">
             <div className="w-full ">
               <div className="gallery-single fix border-0">
-                <img src={selectedEpisode.image} alt="" />
+                <img src={selectedEpisode?.image} alt="" />
                 {/* <div className="title-s">{episode.title}</div>
                   <div className="name-s">{episode.name}</div> */}
               </div>
             </div>
           </div>
 
-          <div className="	pod-s align-center flex flex-col items-center justify-center">
-            <h2>{selectedEpisode.title}</h2>
-            <p>{selectedEpisode.description}</p>
+          <div className="col-span-8	 pod-s align-center flex flex-col  items-center justify-center">
+            <h2>{selectedEpisode?.title}</h2>
+            <p className="px-5">{selectedEpisode?.description}</p>
             <audio controls>
-              <source src={selectedEpisode.audio} type="audio/ogg" />
+              <source src={selectedEpisode?.audio} type="audio/ogg" />
             </audio>
             <div>
               <Audio />
@@ -45,8 +45,8 @@ const PodcastPage = ({ episodes }: any) => {
         </div>
       </div>
       <div className="gallery-list row" style={{ background: "#212322" }}>
-        {episodes.map((episode: any, index: number) => {
-          if (episode._id !== selectedEpisode._id) {
+        {episodes?.map((episode: any, index: number) => {
+          if (episode._id !== selectedEpisode?._id) {
             return (
               <div
                 key={index}
@@ -56,13 +56,17 @@ const PodcastPage = ({ episodes }: any) => {
                 <div className="gallery-single fix">
                   <Link href="#podcast">
                     <img
-                      src={episode.image}
+                      src={episode?.image}
+                      style={{height:"350px"}}
                       className="img-fluid cursor-pointer"
+                      
                       alt="Image"
                     />
                   </Link>
-                  <div className="title-s">{episode.title}</div>
-                  <div className="name-s">{episode.name}</div>
+                  <div className="p-p">
+                  <div className="title-s">{episode?.title}</div>
+                  <div className="name-s">{episode?.subtitle}</div>
+                  </div>
                 </div>
               </div>
             );
