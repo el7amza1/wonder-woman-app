@@ -3,7 +3,7 @@ import React from "react";
 const Audio = () => {
   return (
     <div className="fixed inset-x-0 bottom-0 z-10 lg:left-112 xl:left-120">
-      <div className="flex items-center gap-6 bg-white/90 py-4 px-4 shadow shadow-slate-200/80 ring-1 ring-slate-900/5 backdrop-blur-sm md:px-6">
+      {/* <div className="flex items-center gap-6 bg-white/90 py-4 px-4 shadow shadow-slate-200/80 ring-1 ring-slate-900/5 backdrop-blur-sm md:px-6">
         <div className="hidden md:block">
           <button
             type="button"
@@ -265,7 +265,7 @@ const Audio = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
