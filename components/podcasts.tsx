@@ -21,18 +21,15 @@ const Podcast = ({podcasts}:any) => {
         
 
           <div className="gallery-list row">
-            {podcasts.map((podcast) => 
+            {podcasts.map((podcast:any) => 
             <Link href={`/podcasts/${podcast._id}`}>
-            <div className="col-md-4 col-sm-6 gallery-grid gal_a gal_b">
-              <div className="gallery-single fix">
-                <img
-                  src={podcast.image}
-                  className="img-fluid cursor-pointer"
-
-                  alt="Image"
-                />
-                <div className="title-s">{podcast?.title}</div>
+            <div className="col-md-4 col-sm-6 gallery-grid gal_a gal_b ">
+              <div className="gallery-single fix" style={{backgroundImage:`url(${podcast.image})`, backgroundSize:"cover" ,    height: "229px"}}>
+                
+                <div className="p-p">
+                <div className="title-s"><span>{podcast?.title}</span></div>
                 <div className="name-s">{podcast?.subtitle}</div>
+                </div>
               </div>
             </div>
             </Link>

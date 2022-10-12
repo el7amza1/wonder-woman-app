@@ -3,8 +3,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 const Team = ({ team }:any) => {
   return (
-    <div className="pt-3 bg-g1">
-      <div id="team" className="bg-g1 wb">
+    <div  id="team"className="bg-g1 wb pt-6 ">
+      <div  className="  ">
       <div className="section-title text-center">
             <h3>Our Team</h3>
             <p>

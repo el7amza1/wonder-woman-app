@@ -31,54 +31,55 @@ const Layout = ({ children }: Props) => {
           href="https://d3bzyjrsc4233l.cloudfront.net/company_office/WTSA.png"
         />
       </Head>
-      <nav
-        className={
-          scrolll
-            ? "navbar navbar-expand-lg navbar-dark fixed-top nav-bg"
-            : "navbar navbar-expand-lg navbar-dark fixed-top "
-        }
-        id="mainNav"
-      >
-        <div className="container flex justify-between">
-          <Link2 href="/">
-            <img src="./images/logo.png" alt="" style={{ width: "120px" }} />
-          </Link2>
+      {path == "/" ? (
+        <nav
+          className={
+            scrolll
+              ? "navbar navbar-expand-lg navbar-dark fixed-top nav-bg"
+              : "navbar navbar-expand-lg navbar-dark fixed-top "
+          }
+          id="mainNav"
+        >
+          <div className="container flex justify-between">
+            <Link2 href="/" className="">
+              <img src="./images/logo.png" alt="" style={{ width: "120px" }} />
+            </Link2>
 
-          <button
-            className="navbar-toggler navbar-toggler-right"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="true"
-            aria-label="Toggle navigation"
-            onClick={() => setShow(!show)}
-          >
-            Menu
-            <i className="fa fa-bars"></i>
-          </button>
-          <div
-            className={
-              show
-                ? "collapse navbar-collapse show"
-                : "collapse navbar-collapse"
-            }
-            id="navbarResponsive"
-          >
-            <Scrollspy
-              className="navbar-nav text-uppercase ml-auto"
-              items={[
-                "home",
-                "services",
-                "team",
-                "interns",
-                "podcasts",
-                "contact",
-              ]}
-              currentClassName="active"
+            <button
+              className="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarResponsive"
+              aria-controls="navbarResponsive"
+              aria-expanded="true"
+              aria-label="Toggle navigation"
+              onClick={() => setShow(!show)}
             >
-              <div className="">
-                {path == "/" ? (
+              Menu
+              <i className="fa fa-bars"></i>
+            </button>
+            <div
+              className={
+                show
+                  ? "collapse navbar-collapse show"
+                  : "collapse navbar-collapse"
+              }
+              id="navbarResponsive"
+            >
+              <Scrollspy
+                className="navbar-nav text-uppercase ml-auto"
+                items={[
+                  "home",
+                  "team",
+                  "interns",
+                  "podcasts",
+                  "careers",
+                  "contact",
+                ]}
+                currentClassName="active"
+              >
+                <div className="">
+
                   <ul className="navbar-nav text-uppercase ml-auto">
                     <li className="nav-item">
                       <Link
@@ -92,18 +93,7 @@ const Layout = ({ children }: Props) => {
                         Home
                       </Link>
                     </li>
-                    <li className="nav-item">
-                      <Link
-                        activeClass="active"
-                        spy={true}
-                        smooth={false}
-                        to="/#careers"
-                        className="nav-link "
-                        onClick={() => setShow(false)}
-                      >
-                        Careers
-                      </Link>
-                    </li>
+
                     <li className="nav-item">
                       <Link
                         activeClass="active"
@@ -145,6 +135,18 @@ const Layout = ({ children }: Props) => {
                         activeClass="active"
                         spy={true}
                         smooth={false}
+                        to="careers"
+                        className="nav-link "
+                        onClick={() => setShow(false)}
+                      >
+                        Careers
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        activeClass="active"
+                        spy={true}
+                        smooth={false}
                         to="contact"
                         className="nav-link "
                         onClick={() => setShow(false)}
@@ -153,78 +155,140 @@ const Layout = ({ children }: Props) => {
                       </Link>
                     </li>
                   </ul>
-                ) : (
+
+                </div>
+              </Scrollspy>
+            </div>
+          </div>
+        </nav>) : (
+        <nav
+          className={
+            "navbar navbar-expand-lg navbar-dark fixed-top nav-bg"
+          }
+          id="mainNav"
+        >
+          <div className="container flex justify-between">
+            <Link2 href="/">
+              <img src="../images/logo.png" alt="" style={{ width: "120px" }} />
+            </Link2>
+
+            <button
+              className="navbar-toggler navbar-toggler-right"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbarResponsive"
+              aria-controls="navbarResponsive"
+              aria-expanded="true"
+              aria-label="Toggle navigation"
+              onClick={() => setShow(!show)}
+            >
+              Menu
+              <i className="fa fa-bars"></i>
+            </button>
+            <div
+              className={
+                show
+                  ? "collapse navbar-collapse show"
+                  : "collapse navbar-collapse"
+              }
+              id="navbarResponsive"
+            >
+              <Scrollspy
+                className="navbar-nav text-uppercase ml-auto"
+                items={[
+                  "home",
+                  "team",
+                  "interns",
+                  "podcasts",
+                  "careers",
+                  "contact",
+                ]}
+                currentClassName="active"
+              >
+                <div className="">
                   <ul className="navbar-nav text-uppercase ml-auto">
                     <li className="nav-item">
                       <Link2
                         href="/#home"
-                        className="nav-link "
                         onClick={() => setShow(false)}
                       >
-                        Home
+                        <span className="nav-link ">
+                          Home
+                        </span>
                       </Link2>
                     </li>
-                    <li className="nav-item">
-                      <Link2
-                        href="/#careers"
-                        className="nav-link "
-                        onClick={() => setShow(false)}
-                      >
-                        <a href="/#careers">Careers</a>
-                      </Link2>
-                    </li>
+
                     <li className="nav-item">
                       <Link2
                         href="/#team"
-                        className="nav-link "
+
                         onClick={() => setShow(false)}
                       >
-                        Our Team
+                        <span className="nav-link ">
+                          Our Team
+                        </span>
                       </Link2>
                     </li>
                     <li className="nav-item">
                       <Link2
                         href="/#interns"
-                        className="nav-link "
                         onClick={() => setShow(false)}
                       >
-                        Interns
+                        <span className="nav-link ">
+                          Interns
+                        </span>
                       </Link2>
                     </li>
                     <li className="nav-item">
                       <Link2
                         href="/#podcasts"
-                        className="nav-link "
                         onClick={() => setShow(false)}
                       >
-                        Podcasts
+                        <span className="nav-link "
+                        >
+                          Podcasts
+                        </span>
+                      </Link2>
+                    </li>
+                    <li className="nav-item">
+                      <Link2
+                        href="/#careers"
+
+                        onClick={() => setShow(false)}
+                      >
+                        <span className="nav-link " >Careers</span>
                       </Link2>
                     </li>
                     <li className="nav-item">
                       <Link2
                         href="/#contact"
-                        className="nav-link "
+
                         onClick={() => setShow(false)}
                       >
-                        Contact Us
+                        <span className="nav-link ">
+                          Contact Us
+                        </span>
                       </Link2>
                     </li>
                   </ul>
-                )}
-              </div>
-            </Scrollspy>
+                </div>
+              </Scrollspy>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>)
+      }
       {children}
       <div className="copyrights">
         <div className="container">
           <div className="footer-distributed">
-            <Link2 href="/">
+            
+
+            <div className="footer-center flex items-center flex-col">
+           <p>
+           <Link2 href="/">
               <img className="h-10" src="./images/logo.png" alt="" />
             </Link2>
-
-            <div className="footer-center">
+           </p>
               <p className="footer-links">
                 <Link2 href="/">Home</Link2>
               </p>
