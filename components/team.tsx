@@ -18,8 +18,8 @@ const Team = ({ team }: any) => {
           stopOnHover={true}
           useKeyboardArrows={true}
         >
-          {team.map((member: any) => (
-            <div style={{ backgroundImage: `url(${member.image})`, backgroundSize: "cover", backdropFilter: "blur(15px )"}} >
+          {team.map((member: any , inx:any) => (
+            <div key={inx} style={{ backgroundImage: `url(${member.image})`, backgroundSize: "cover", backdropFilter: "blur(15px )"}} >
               <div style={{ backgroundColor: "#000000b5" , backdropFilter: "blur(10px )"}}>
                 <div
                   key={member._id}
